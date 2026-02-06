@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p52710-e1559444.adobeaemcloud.com/bin/franklin.delivery/piyush-gds/revmed/main"
+    url: "https://author-p52710-e1559444.adobeaemcloud.com/bin/franklin.delivery/piyush-gds/revmed-unbranded-site/main"
     type: "markup"
     suffix: ".html"
