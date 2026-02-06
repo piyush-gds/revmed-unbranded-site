@@ -67,6 +67,37 @@ export default async function decorate(block) {
       if (index === totalItems - 1) {
         navItem.classList.add('nav-cta');
       }
+
+      if (index === 0) {
+        navItem.classList.add('active');
+      }
+
+      if (index < totalItems - 1) {
+        const link = navItem.querySelector('a');
+        if (link) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            navItem.classList.add('active');
+            
+            // Close mobile menu if open
+            if (!isDesktop.matches && nav.getAttribute('aria-expanded') === 'true') {
+              toggleMenu(nav, navSections);
+            }
+            
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+              const targetId = href.substring(1);
+              const targetSection = document.getElementById(targetId);
+              if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }
+          });
+        }
+      }
     });
   }
 
@@ -85,7 +116,6 @@ export default async function decorate(block) {
   }
   nav.setAttribute('aria-expanded', 'false');
 
-  // Set initial state based on viewport
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 

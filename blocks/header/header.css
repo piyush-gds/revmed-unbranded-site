@@ -4,7 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
-  padding: 1.25rem 0;
+  padding: 1.25rem 4.28rem;
   top: 0;
   left: 0;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
@@ -211,14 +211,15 @@ header nav .nav-sections ul > li {
 }
 
 header nav .nav-sections ul > li a {
-  color: var(--green-color);
+  color: var(--light-blue-color);
   font-weight: 600;
   flex: 1;
+  text-decoration: none;
 }
 
-/* First link - mulberry color */
-header nav .nav-sections ul > li:first-child a {
+header nav .nav-sections ul > li.active a {
   color: var(--mulberry-color);
+  text-decoration: underline;
 }
 
 /* Chevron arrows for all links except CTA */
@@ -226,8 +227,12 @@ header nav .nav-sections ul > li:not(.nav-cta)::after {
   content: '\203A';
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--green-color);
+  color: var(--light-blue-color);
   margin-left: 8px;
+}
+
+header nav .nav-sections ul > li.active:not(.nav-cta)::after {
+  color: var(--mulberry-color);
 }
 
 /* CTA button - mobile */
