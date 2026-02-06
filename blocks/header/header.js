@@ -77,7 +77,12 @@ export default async function decorate(block) {
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
+  
+  if (navSections) {
+    nav.insertBefore(hamburger, navSections);
+  } else {
+    nav.append(hamburger);
+  }
   nav.setAttribute('aria-expanded', 'false');
 
   // Set initial state based on viewport

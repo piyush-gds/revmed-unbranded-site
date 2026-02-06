@@ -13,11 +13,11 @@ header .nav-wrapper {
 header nav {
   box-sizing: border-box;
   display: grid;
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr / auto 1fr;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: var(--nav-height);
+  grid-template-areas: 'brand hamburger';
   align-items: center;
-  gap: 0 24px;
+  gap: 0;
   margin: auto;
   max-width: 1248px;
   height: var(--nav-height);
@@ -26,11 +26,15 @@ header nav {
 }
 
 header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr / auto 1fr;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: var(--nav-height) 1fr;
+  grid-template-areas:
+    'brand hamburger'
+    'sections sections';
+  height: auto;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: var(--background-color);
 }
 
 @media (width >= 900px) {
@@ -72,22 +76,24 @@ header nav a:hover {
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
-  height: 22px;
+  height: 24px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 header nav .nav-hamburger button {
-  height: 22px;
+  height: 24px;
   margin: 0;
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: var(--green-color);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -96,7 +102,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 24px;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -104,43 +110,43 @@ header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
   background: currentcolor;
+  width: 24px;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
 header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  height: 2px;
+  height: 3px;
   border-radius: 2px;
   background: currentcolor;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
+  top: -8px;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
+  top: 8px;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
+  height: 24px;
+  background: transparent;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::before,
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
-  left: 1px;
-  transform: rotate(45deg);
-  transform-origin: 2px 1px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
   width: 24px;
-  height: 2px;
+  height: 3px;
   border-radius: 2px;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
-  transform: rotate(-45deg);
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 @media (width >= 900px) {
@@ -185,6 +191,7 @@ header nav[aria-expanded='true'] .nav-sections {
   visibility: visible;
   align-self: start;
   padding-top: 24px;
+  width: 100%;
 }
 
 header nav .nav-sections ul {
@@ -195,18 +202,54 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 600;
   padding: 16px 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-header nav .nav-sections ul > li:last-child {
-  border-bottom: none;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header nav .nav-sections ul > li a {
   color: var(--green-color);
   font-weight: 600;
+  flex: 1;
+}
+
+/* First link - mulberry color */
+header nav .nav-sections ul > li:first-child a {
+  color: var(--mulberry-color);
+}
+
+/* Chevron arrows for all links except CTA */
+header nav .nav-sections ul > li:not(.nav-cta)::after {
+  content: '\203A';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--green-color);
+  margin-left: 8px;
+}
+
+/* CTA button - mobile */
+header nav .nav-sections ul > li.nav-cta {
+  border-top: none;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+header nav .nav-sections ul > li.nav-cta a {
+  display: inline-block;
+  background-color: var(--green-color);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: var(--body-font-size-m);
+  text-align: center;
+}
+
+header nav .nav-sections ul > li.nav-cta a:hover {
+  background-color: #005a63;
 }
 
 @media (width >= 900px) {
@@ -231,7 +274,6 @@ header nav .nav-sections ul > li a {
   header nav .nav-sections ul {
     display: flex;
     align-items: center;
-    gap: 0;
     margin: 0;
   }
 
@@ -239,18 +281,19 @@ header nav .nav-sections ul > li a {
     flex: 0 0 auto;
     position: relative;
     padding: 8px 24px;
-    border-bottom: none;
+    border-top: none;
+    display: block;
   }
 
-  header nav .nav-sections ul > li a {
-    color: var(--green-color);
-    font-weight: 600;
-    font-size: var(--body-font-size-m);
+  /* Remove chevrons on desktop */
+  header nav .nav-sections ul > li:not(.nav-cta)::after {
+    display: none;
   }
 
   /* Vertical separator between links */
   header nav .nav-sections ul > li.has-separator::after {
     content: '';
+    display: block;
     position: absolute;
     right: 0;
     top: 50%;
@@ -260,8 +303,13 @@ header nav .nav-sections ul > li a {
     background-color: #c4c4c4;
   }
 
-  /* CTA button spacing */
+  /* CTA button - desktop */
   header nav .nav-sections ul > li.nav-cta {
     margin-left: 3.12rem;
+    padding: 0;
+  }
+
+  header nav .nav-sections ul > li.nav-cta a {
+    padding: 12px 28px;
   }
 }
