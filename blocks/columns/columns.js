@@ -15,4 +15,28 @@ export default function decorate(block) {
       }
     });
   });
+
+  // Check if inside accordion section
+  const section = block.closest('.section');
+  if (section && section.classList.contains('accordion')) {
+    // Add accordion functionality to each row
+    [...block.children].forEach((row) => {
+      const header = row.querySelector('div:first-child');
+      if (header) {
+        header.addEventListener('click', () => {
+          // Close other accordions (optional - remove this block for multi-open)
+          const allRows = [...block.children];
+          allRows.forEach((otherRow) => {
+            if (otherRow !== row && otherRow.classList.contains('accordion-open')) {
+              otherRow.classList.remove('accordion-open');
+            }
+          });
+
+          // Toggle current accordion
+          row.classList.toggle('accordion-open');
+        });
+      }
+    });
+  }
 }
+

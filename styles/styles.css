@@ -117,3 +117,74 @@ main .section.light-pink {
   margin: 0;
   padding: 40px 0;
 }
+
+/* Accordion Section Styles */
+main .section.accordion {
+  padding: 40px 0;
+}
+
+main .section.accordion .columns-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+main .section.accordion .columns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+main .section.accordion .columns > div {
+  flex-direction: column;
+  background-color: var(--background-color);
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Accordion Header (first column) */
+main .section.accordion .columns > div > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  cursor: pointer;
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  color: var(--mulberry-color);
+  transition: background-color 0.2s ease;
+}
+
+main .section.accordion .columns > div > div:first-child:hover {
+  background-color: var(--light-color);
+}
+
+main .section.accordion .columns > div > div:first-child::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--mulberry-color);
+  border-bottom: 2px solid var(--mulberry-color);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+main .section.accordion .columns > div.accordion-open > div:first-child::after {
+  transform: rotate(-135deg);
+}
+
+/* Accordion Content (second column onwards) */
+main .section.accordion .columns > div > div:not(:first-child) {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 24px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+main .section.accordion .columns > div.accordion-open > div:not(:first-child) {
+  max-height: 1000px;
+  padding: 0 24px 20px;
+}
+

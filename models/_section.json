@@ -41,6 +41,10 @@
             {
               "name": "Light Pink",
               "value": "light-pink"
+            },
+            {
+              "name": "Accordion",
+              "value": "accordion"
             }
           ]
         }
