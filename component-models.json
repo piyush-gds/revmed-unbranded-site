@@ -144,12 +144,14 @@
           {
             "name": "Light Pink",
             "value": "light-pink"
-          },
-          {
-            "name": "Accordion",
-            "value": "accordion"
           }
         ]
+      },
+      {
+        "component": "boolean",
+        "name": "accordion",
+        "label": "Is Accordion",
+        "valueType": "boolean"
       }
     ]
   },

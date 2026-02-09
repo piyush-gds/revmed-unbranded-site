@@ -16,9 +16,9 @@ export default function decorate(block) {
     });
   });
 
-  // Check if inside accordion section
+  // Check if inside accordion section (data-accordion="true")
   const section = block.closest('.section');
-  if (section && section.classList.contains('accordion')) {
+  if (section && section.dataset.accordion === 'true') {
     // Add accordion functionality to each row
     [...block.children].forEach((row) => {
       const header = row.querySelector('div:first-child');
