@@ -119,10 +119,6 @@ main .section.light-pink {
 }
 
 /* Accordion Section Styles */
-main .section[data-accordion="true"] {
-  padding: 40px 0;
-}
-
 main .section[data-accordion="true"] .columns-wrapper {
   max-width: 700px;
   margin: 0 auto;
@@ -134,14 +130,14 @@ main .section[data-accordion="true"] .columns.accordion {
   gap: 16px;
 }
 
-/* Accordion Item - using native details element */
+/* Accordion Item */
 main .section[data-accordion="true"] .accordion-item {
   background-color: var(--background-color);
   border: 1px solid #dadada;
   border-radius: 4px;
 }
 
-/* Accordion Label - using native summary element */
+/* Accordion Label */
 main .section[data-accordion="true"] .accordion-item-label {
   position: relative;
   display: block;
@@ -152,23 +148,11 @@ main .section[data-accordion="true"] .accordion-item-label {
   font-size: var(--heading-font-size-xs);
   font-weight: 700;
   color: var(--mulberry-color);
-  transition: background-color 0.2s ease;
 }
 
-main .section[data-accordion="true"] .accordion-item-label::-webkit-details-marker {
-  display: none;
-}
-
+main .section[data-accordion="true"] .accordion-item-label::-webkit-details-marker,
 main .section[data-accordion="true"] .accordion-item-label::marker {
   display: none;
-}
-
-main .section[data-accordion="true"] .accordion-item[open] .accordion-item-label {
-  background-color: var(--light-color);
-}
-
-main .section[data-accordion="true"] .accordion-item-label:hover {
-  background-color: var(--light-color);
 }
 
 /* Chevron icon */
@@ -192,21 +176,17 @@ main .section[data-accordion="true"] .accordion-item[open] .accordion-item-label
 /* Accordion Body */
 main .section[data-accordion="true"] .accordion-item-body {
   padding: 0 24px 20px;
-  border-top: 1px solid #dadada;
 }
 
 main .section[data-accordion="true"] .accordion-item-body p {
-  margin: 16px 0 0;
+  margin: 0 0 12px;
   line-height: 1.6;
-}
-
-main .section[data-accordion="true"] .accordion-item-body p:first-child {
-  margin-top: 16px;
 }
 
 main .section[data-accordion="true"] .accordion-item-body p:last-child {
   margin-bottom: 0;
 }
+
 
 
 

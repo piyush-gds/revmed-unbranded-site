@@ -2,6 +2,48 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
+  // Check if parent section has accordion enabled
+  const section = block.closest('.section');
+
+  // Check if inside accordion section (data-accordion="true")
+  if (section && section.dataset.accordion === 'true') {
+    block.classList.add('accordion');
+
+    [...block.children].forEach((row) => {
+      const innerWrapper = row.children[0];
+      if (innerWrapper && innerWrapper.children.length >= 1) {
+        const firstChild = innerWrapper.children[0];
+        const summary = document.createElement('summary');
+        summary.className = 'accordion-item-label';
+
+        // Check if first child has a strong/b element at the start (mixed content)
+        const strongEl = firstChild.querySelector('strong, b');
+        if (strongEl && firstChild.firstChild === strongEl) {
+          // Extract strong text as label
+          summary.textContent = strongEl.textContent;
+          strongEl.remove();
+        } else {
+          // Use entire first child as label
+          summary.append(...firstChild.childNodes);
+          firstChild.remove();
+        }
+
+        // All remaining content becomes the accordion body
+        const body = document.createElement('div');
+        body.className = 'accordion-item-body';
+        body.append(...innerWrapper.childNodes);
+
+        const details = document.createElement('details');
+        details.className = 'accordion-item';
+        details.append(summary, body);
+
+        innerWrapper.innerHTML = '';
+        innerWrapper.append(details);
+      }
+    });
+    return;
+  }
+
   // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
@@ -15,47 +57,6 @@ export default function decorate(block) {
       }
     });
   });
-
-  // Check if inside accordion section (data-accordion="true")
-  const section = block.closest('.section');
-  if (section && section.dataset.accordion === 'true') {
-    block.classList.add('accordion');
-
-    [...block.children].forEach((row) => {
-      // Get the column content (single column structure)
-      const col = row.children[0];
-      if (!col) return;
-
-      // Find the first heading or strong element as the accordion label
-      const labelEl = col.querySelector('h1, h2, h3, h4, h5, h6, strong, b');
-      if (!labelEl) return;
-
-      // Create summary (accordion label)
-      const summary = document.createElement('summary');
-      summary.className = 'accordion-item-label';
-      summary.textContent = labelEl.textContent;
-
-      // Remove the label element from content
-      if (labelEl.parentElement === col) {
-        labelEl.remove();
-      } else if (labelEl.parentElement.tagName === 'P' && labelEl.parentElement.textContent.trim() === labelEl.textContent.trim()) {
-        labelEl.parentElement.remove();
-      }
-
-      // Create body wrapper for remaining content
-      const body = document.createElement('div');
-      body.className = 'accordion-item-body';
-      body.append(...col.childNodes);
-
-      // Create details element (native accordion)
-      const details = document.createElement('details');
-      details.className = 'accordion-item';
-      details.append(summary, body);
-
-      // Replace row with details
-      row.replaceWith(details);
-    });
-  }
 }
 
 
