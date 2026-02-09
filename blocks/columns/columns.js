@@ -5,8 +5,11 @@ export default function decorate(block) {
   // Check if parent section has accordion enabled
   const section = block.closest('.section');
 
+  // Skip accordion transformation in editor mode
+  const isEditor = document.body.querySelector('[data-aue-resource]');
+
   // Check if inside accordion section (data-accordion="true")
-  if (section && section.dataset.accordion === 'true') {
+  if (section && section.dataset.accordion === 'true' && !isEditor) {
     block.classList.add('accordion');
 
     [...block.children].forEach((row) => {
