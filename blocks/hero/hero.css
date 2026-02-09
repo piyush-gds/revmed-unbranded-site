@@ -1,4 +1,3 @@
-/* Hero Container */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -6,182 +5,33 @@
 
 .hero {
   position: relative;
-  background-color: var(--mulberry-color);
-  overflow: hidden;
+  padding: 40px 24px;
+  min-height: 300px;
 }
 
-/* Hero Inner Layout */
-.hero .hero-inner {
-  display: flex;
-  flex-direction: column;
-  max-width: 1480px;
-  margin: 0 auto;
-  padding: 40px 24px 48px;
-  gap: 24px;
-}
-
-/* Hero Content Section */
-.hero .hero-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-  z-index: 1;
-}
-
-/* Hero Headings */
 .hero h1 {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--background-color);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin: 0 0 4px;
 }
 
-.hero h2 {
-  color: var(--light-blue-color);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 16px;
+.hero picture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  object-fit: cover;
+  box-sizing: border-box;
 }
 
-.hero h3 {
-  color: var(--light-blue-color);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.3;
-  margin: 0;
-}
-
-/* Hero Paragraphs */
-.hero p {
-  color: var(--background-color);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0;
-  max-width: 400px;
-}
-
-/* Disclaimer text (small) */
-.hero .hero-content p:last-child,
-.hero p em,
-.hero em {
-  font-size: 11px;
-  font-style: italic;
-  opacity: 0.9;
-}
-
-/* Hero Image Wrapper */
-.hero .hero-image-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.hero .hero-image-wrapper picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero .hero-image-wrapper img {
+.hero img {
+  object-fit: cover;
   width: 100%;
-  max-width: 180px;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
 }
 
-/* Strong/Bold text styling - for inline emphasis */
-.hero strong {
-  color: var(--light-blue-color);
-  font-weight: 700;
-}
-
-/* Links in hero */
-.hero a {
-  color: var(--background-color);
-  text-decoration: underline;
-}
-
-.hero a:hover {
-  text-decoration: none;
-}
-
-/* Desktop Styles */
 @media (width >= 900px) {
-  .hero .hero-inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 48px 60px 56px;
-    gap: 40px;
-    min-height: 320px;
-  }
-
-  .hero .hero-content {
-    flex: 1;
-    max-width: 580px;
-  }
-
-  .hero h1 {
-    font-size: 44px;
-    margin: 0 0 6px;
-  }
-
-  .hero h2 {
-    font-size: 28px;
-    margin: 0 0 20px;
-  }
-
-  .hero h3 {
-    font-size: 22px;
-  }
-
-  .hero p {
-    font-size: 18px;
-    max-width: 480px;
-  }
-
-  .hero .hero-image-wrapper {
-    flex: 0 0 auto;
-    justify-content: flex-end;
-  }
-
-  .hero .hero-image-wrapper img {
-    max-width: 280px;
-  }
-}
-
-/* Large Desktop - 1480px container */
-@media (width >= 1200px) {
-  .hero .hero-inner {
-    padding: 56px 80px 64px;
-    min-height: 363px;
-  }
-
-  .hero .hero-content {
-    max-width: 650px;
-  }
-
-  .hero h1 {
-    font-size: 50px;
-  }
-
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 20px;
-    max-width: 520px;
-  }
-
-  .hero .hero-image-wrapper img {
-    max-width: 320px;
+  .hero {
+    padding: 40px 32px;
   }
 }

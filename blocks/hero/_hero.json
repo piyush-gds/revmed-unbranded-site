@@ -21,27 +21,6 @@
       "id": "hero",
       "fields": [
         {
-          "component": "text",
-          "valueType": "string",
-          "name": "headline",
-          "label": "Headline",
-          "value": ""
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "subheadline",
-          "label": "Subheadline",
-          "value": ""
-        },
-        {
-          "component": "richtext",
-          "name": "description",
-          "value": "",
-          "label": "Description",
-          "valueType": "string"
-        },
-        {
           "component": "reference",
           "valueType": "string",
           "name": "image",
@@ -52,8 +31,15 @@
           "component": "text",
           "valueType": "string",
           "name": "imageAlt",
-          "label": "Image Alt Text",
+          "label": "Alt",
           "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
         }
       ]
     }
