@@ -128,63 +128,85 @@ main .section[data-accordion="true"] .columns-wrapper {
   margin: 0 auto;
 }
 
-main .section[data-accordion="true"] .columns {
+main .section[data-accordion="true"] .columns.accordion {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-main .section[data-accordion="true"] .columns > div {
-  flex-direction: column;
+/* Accordion Item - using native details element */
+main .section[data-accordion="true"] .accordion-item {
   background-color: var(--background-color);
-  border: 1px solid #e0e0e0;
+  border: 1px solid #dadada;
   border-radius: 4px;
-  overflow: hidden;
 }
 
-/* Accordion Header (first column) */
-main .section[data-accordion="true"] .columns > div > div:first-child {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Accordion Label - using native summary element */
+main .section[data-accordion="true"] .accordion-item-label {
+  position: relative;
+  display: block;
   padding: 20px 24px;
+  padding-right: 50px;
   cursor: pointer;
+  list-style: none;
   font-size: var(--heading-font-size-xs);
   font-weight: 700;
   color: var(--mulberry-color);
   transition: background-color 0.2s ease;
 }
 
-main .section[data-accordion="true"] .columns > div > div:first-child:hover {
+main .section[data-accordion="true"] .accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+main .section[data-accordion="true"] .accordion-item-label::marker {
+  display: none;
+}
+
+main .section[data-accordion="true"] .accordion-item[open] .accordion-item-label {
   background-color: var(--light-color);
 }
 
-main .section[data-accordion="true"] .columns > div > div:first-child::after {
+main .section[data-accordion="true"] .accordion-item-label:hover {
+  background-color: var(--light-color);
+}
+
+/* Chevron icon */
+main .section[data-accordion="true"] .accordion-item-label::after {
   content: '';
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid var(--mulberry-color);
-  border-bottom: 2px solid var(--mulberry-color);
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-  margin-left: 16px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border: solid var(--mulberry-color);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.2s ease;
 }
 
-main .section[data-accordion="true"] .columns > div.accordion-open > div:first-child::after {
-  transform: rotate(-135deg);
+main .section[data-accordion="true"] .accordion-item[open] .accordion-item-label::after {
+  transform: translateY(-50%) rotate(-135deg);
 }
 
-/* Accordion Content (second column onwards) */
-main .section[data-accordion="true"] .columns > div > div:not(:first-child) {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 24px;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-main .section[data-accordion="true"] .columns > div.accordion-open > div:not(:first-child) {
-  max-height: 1000px;
+/* Accordion Body */
+main .section[data-accordion="true"] .accordion-item-body {
   padding: 0 24px 20px;
+  border-top: 1px solid #dadada;
 }
+
+main .section[data-accordion="true"] .accordion-item-body p {
+  margin: 16px 0 0;
+  line-height: 1.6;
+}
+
+main .section[data-accordion="true"] .accordion-item-body p:first-child {
+  margin-top: 16px;
+}
+
+main .section[data-accordion="true"] .accordion-item-body p:last-child {
+  margin-bottom: 0;
+}
+
+
 
