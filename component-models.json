@@ -136,6 +136,14 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Sky Blue",
+            "value": "sky-blue"
+          },
+          {
+            "name": "Light Pink",
+            "value": "light-pink"
           }
         ]
       }

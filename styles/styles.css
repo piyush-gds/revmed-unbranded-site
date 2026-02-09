@@ -5,6 +5,8 @@
   --text-color: #000;
   --mulberry-color: #952460;
   --light-blue-color: #86C1E4;
+  --sky-blue-color: #E8F4FA;
+  --light-pink-color: #F9E8F0;
   --green-color: #007580;
 
   /* fonts */
@@ -100,6 +102,18 @@ main > .section:first-of-type {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.sky-blue {
+  background-color: var(--sky-blue-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.light-pink {
+  background-color: var(--light-pink-color);
   margin: 0;
   padding: 40px 0;
 }
