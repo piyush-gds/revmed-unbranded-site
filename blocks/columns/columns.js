@@ -36,6 +36,35 @@ export default function decorate(block) {
         body.className = 'accordion-item-body';
         body.append(...innerWrapper.childNodes);
 
+        // Transform picture + text/link patterns into card-like elements
+        const paragraphs = [...body.querySelectorAll('p')];
+        paragraphs.forEach((p, index) => {
+          const picture = p.querySelector('picture');
+          if (picture) {
+            // Look for the next paragraph with text/link
+            const nextP = paragraphs[index + 1];
+            if (nextP && nextP.querySelector('a')) {
+              // Create card structure
+              const card = document.createElement('div');
+              card.className = 'accordion-card';
+
+              const cardImage = document.createElement('div');
+              cardImage.className = 'accordion-card-image';
+              cardImage.append(picture);
+
+              const cardBody = document.createElement('div');
+              cardBody.className = 'accordion-card-body';
+              cardBody.append(...nextP.childNodes);
+
+              card.append(cardImage, cardBody);
+
+              // Replace picture paragraph with card, remove next paragraph
+              p.replaceWith(card);
+              nextP.remove();
+            }
+          }
+        });
+
         const details = document.createElement('details');
         details.className = 'accordion-item';
         details.append(summary, body);

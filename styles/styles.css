@@ -8,6 +8,7 @@
   --sky-blue-color: #E8F4FA;
   --light-pink-color: #F9E8F0;
   --green-color: #007580;
+  --foam-color: #E8F7F7;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -118,31 +119,28 @@ main .section.light-pink {
   padding: 40px 0;
 }
 
-/* Accordion Section Styles */
-main .section[data-accordion="true"] .columns-wrapper {
+/* Accordion Styles */
+.section[data-accordion="true"] .columns-wrapper {
   max-width: 700px;
   margin: 0 auto;
 }
 
-main .section[data-accordion="true"] .columns.accordion {
+.section[data-accordion="true"] .columns.accordion {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* Accordion Item */
-main .section[data-accordion="true"] .accordion-item {
+.section[data-accordion="true"] .accordion-item {
   background-color: var(--background-color);
   border: 1px solid #dadada;
   border-radius: 4px;
 }
 
-/* Accordion Label */
-main .section[data-accordion="true"] .accordion-item-label {
+.section[data-accordion="true"] .accordion-item-label {
   position: relative;
   display: block;
-  padding: 20px 24px;
-  padding-right: 50px;
+  padding: 20px 50px 20px 24px;
   cursor: pointer;
   list-style: none;
   font-size: var(--heading-font-size-xs);
@@ -150,13 +148,12 @@ main .section[data-accordion="true"] .accordion-item-label {
   color: var(--mulberry-color);
 }
 
-main .section[data-accordion="true"] .accordion-item-label::-webkit-details-marker,
-main .section[data-accordion="true"] .accordion-item-label::marker {
+.section[data-accordion="true"] .accordion-item-label::-webkit-details-marker,
+.section[data-accordion="true"] .accordion-item-label::marker {
   display: none;
 }
 
-/* Chevron icon */
-main .section[data-accordion="true"] .accordion-item-label::after {
+.section[data-accordion="true"] .accordion-item-label::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -169,22 +166,72 @@ main .section[data-accordion="true"] .accordion-item-label::after {
   transition: transform 0.2s ease;
 }
 
-main .section[data-accordion="true"] .accordion-item[open] .accordion-item-label::after {
+.section[data-accordion="true"] .accordion-item[open] .accordion-item-label::after {
   transform: translateY(-50%) rotate(-135deg);
 }
 
-/* Accordion Body */
-main .section[data-accordion="true"] .accordion-item-body {
+.section[data-accordion="true"] .accordion-item-body {
   padding: 0 24px 20px;
 }
 
-main .section[data-accordion="true"] .accordion-item-body p {
+.section[data-accordion="true"] .accordion-item-body p {
   margin: 0 0 12px;
   line-height: 1.6;
 }
 
-main .section[data-accordion="true"] .accordion-item-body p:last-child {
+.section[data-accordion="true"] .accordion-item-body p:last-child {
   margin-bottom: 0;
+}
+
+/* Accordion Cards */
+.section[data-accordion="true"] .accordion-card {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--foam-color);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.section[data-accordion="true"] .accordion-card:last-child {
+  margin-bottom: 0;
+}
+
+.section[data-accordion="true"] .accordion-card-image {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section[data-accordion="true"] .accordion-card-image picture,
+.section[data-accordion="true"] .accordion-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section[data-accordion="true"] .accordion-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 16px 20px;
+}
+
+.section[data-accordion="true"] .accordion-card-body a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--link-color);
+}
+
+.section[data-accordion="true"] .accordion-card-body a::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007a87' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
 
