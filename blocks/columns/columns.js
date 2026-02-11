@@ -65,6 +65,31 @@ export default function decorate(block) {
           }
         });
 
+        // Wrap all accordion-cards in a common wrapper
+        const cards = [...body.querySelectorAll('.accordion-card')];
+        if (cards.length) {
+          const cardsWrapper = document.createElement('div');
+          cardsWrapper.className = 'accordion-cards-wrapper';
+          cards[0].before(cardsWrapper);
+          cards.forEach((card) => cardsWrapper.appendChild(card));
+
+          // Transform trailing <p> after cards wrapper into callout-banner
+          const callout = document.createElement('div');
+          callout.className = 'callout-banner';
+          const content = document.createElement('div');
+          content.className = 'callout-banner-content';
+          let next = cardsWrapper.nextElementSibling;
+          while (next) {
+            const sib = next;
+            next = next.nextElementSibling;
+            if (sib.tagName === 'P' && sib.textContent.trim()) content.appendChild(sib);
+          }
+          if (content.hasChildNodes()) {
+            callout.appendChild(content);
+            body.appendChild(callout);
+          }
+        }
+
         const details = document.createElement('details');
         details.className = 'accordion-item';
         details.append(summary, body);

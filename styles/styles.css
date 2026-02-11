@@ -120,24 +120,25 @@ main .section.light-pink {
 }
 
 /* Accordion Styles */
-.section[data-accordion="true"] .columns-wrapper {
-  max-width: 700px;
+.section[data-accordion] .columns-wrapper {
   margin: 0 auto;
 }
 
-.section[data-accordion="true"] .columns.accordion {
+.section[data-accordion] .columns.accordion {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.section[data-accordion="true"] .accordion-item {
+/* Accordion item (details element) */
+.section[data-accordion] .accordion-item {
   background-color: var(--background-color);
   border: 1px solid #dadada;
   border-radius: 4px;
 }
 
-.section[data-accordion="true"] .accordion-item-label {
+/* Accordion label (summary element) */
+.section[data-accordion] .accordion-item-label {
   position: relative;
   display: block;
   padding: 20px 50px 20px 24px;
@@ -148,12 +149,13 @@ main .section.light-pink {
   color: var(--mulberry-color);
 }
 
-.section[data-accordion="true"] .accordion-item-label::-webkit-details-marker,
-.section[data-accordion="true"] .accordion-item-label::marker {
+.section[data-accordion] .accordion-item-label::-webkit-details-marker,
+.section[data-accordion] .accordion-item-label::marker {
   display: none;
 }
 
-.section[data-accordion="true"] .accordion-item-label::after {
+/* Chevron indicator */
+.section[data-accordion] .accordion-item-label::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -166,51 +168,53 @@ main .section.light-pink {
   transition: transform 0.2s ease;
 }
 
-.section[data-accordion="true"] .accordion-item[open] .accordion-item-label::after {
+.section[data-accordion] .accordion-item[open] > .accordion-item-label::after {
   transform: translateY(-50%) rotate(-135deg);
 }
 
-.section[data-accordion="true"] .accordion-item-body {
+/* Accordion body */
+.section[data-accordion] .accordion-item-body {
   padding: 0 24px 20px;
 }
 
-.section[data-accordion="true"] .accordion-item-body p {
+.section[data-accordion] .accordion-item-body p {
   margin: 0 0 12px;
   line-height: 1.6;
 }
 
-.section[data-accordion="true"] .accordion-item-body p:last-child {
+.section[data-accordion] .accordion-item-body p:last-child {
   margin-bottom: 0;
 }
 
 /* Accordion Cards */
-.section[data-accordion="true"] .accordion-card {
+.section[data-accordion] .accordion-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 0;
+}
+
+.section[data-accordion] .accordion-card {
   display: flex;
   align-items: stretch;
   background-color: var(--foam-color);
-  margin-bottom: 12px;
   overflow: hidden;
 }
 
-.section[data-accordion="true"] .accordion-card:last-child {
-  margin-bottom: 0;
-}
-
-.section[data-accordion="true"] .accordion-card-image {
+.section[data-accordion] .accordion-card-image {
   flex: 0 0 80px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.section[data-accordion="true"] .accordion-card-image picture,
-.section[data-accordion="true"] .accordion-card-image img {
+.section[data-accordion] .accordion-card-image :is(picture, img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.section[data-accordion="true"] .accordion-card-body {
+.section[data-accordion] .accordion-card-body {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -219,7 +223,7 @@ main .section.light-pink {
   padding: 16px 20px;
 }
 
-.section[data-accordion="true"] .accordion-card-body a {
+.section[data-accordion] .accordion-card-body a {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -227,7 +231,7 @@ main .section.light-pink {
   color: var(--link-color);
 }
 
-.section[data-accordion="true"] .accordion-card-body a::after {
+.section[data-accordion] .accordion-card-body a::after {
   content: '';
   width: 12px;
   height: 12px;
