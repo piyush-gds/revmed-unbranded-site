@@ -1,0 +1,106 @@
+/* callout-banner block */
+.callout-banner-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.callout-banner {
+  position: relative;
+  background-color: var(--mulberry-color, #952460);
+  color: #fff;
+  padding: 30px 50px;
+  max-width: 914px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+/* content container */
+.callout-banner .callout-banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* text styles */
+.callout-banner .callout-banner-content p {
+  margin: 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+  max-width: 630px;
+}
+
+/* eyebrow / smaller text - use <em> or a specific class */
+.callout-banner .callout-banner-content p em {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  display: block;
+}
+
+/* headings inside callout */
+.callout-banner .callout-banner-content h1,
+.callout-banner .callout-banner-content h2,
+.callout-banner .callout-banner-content h3,
+.callout-banner .callout-banner-content h4,
+.callout-banner .callout-banner-content h5,
+.callout-banner .callout-banner-content h6 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+  margin: 0;
+}
+
+/* decorative corner SVG */
+.callout-banner .callout-banner-corner {
+  position: absolute;
+  bottom: -13px;
+  right: -20px;
+  transform: rotate(34.37deg);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 0;
+}
+
+.callout-banner .callout-banner-corner svg {
+  display: block;
+  width: 25px;
+  height: 99px;
+}
+
+/* mobile styles */
+@media (max-width: 768px) {
+  .callout-banner {
+    padding: 24px 20px;
+    margin: 0 16px;
+    border-radius: 8px;
+  }
+
+  .callout-banner .callout-banner-content p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .callout-banner .callout-banner-content h1,
+  .callout-banner .callout-banner-content h2,
+  .callout-banner .callout-banner-content h3,
+  .callout-banner .callout-banner-content h4,
+  .callout-banner .callout-banner-content h5,
+  .callout-banner .callout-banner-content h6 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .callout-banner .callout-banner-corner {
+    bottom: -10px;
+    right: -10px;
+  }
+}
