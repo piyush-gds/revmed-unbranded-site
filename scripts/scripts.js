@@ -76,6 +76,29 @@ function buildAutoBlocks() {
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
+/**
+ * Adds a decorative corner SVG to mulberry-style-pre-footer sections.
+ * @param {Element} main The main element
+ */
+function decorateMulberryPreFooter(main) {
+  main.querySelectorAll('.section.mulberry-style-pre-footer').forEach((section) => {
+    const corner = document.createElement('div');
+    corner.className = 'decorative-corner';
+    const gradientId = `paint0_linear_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    corner.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="82" viewBox="0 0 56 82" fill="none">
+      <path d="M55.8619 39.1502L29.9127 81.3112L5.7036e-05 81.3116L55.8619 -7.07889e-05L55.8619 39.1502Z" fill="url(#${gradientId})" fill-opacity="0.42" style="mix-blend-mode:multiply"/>
+      <path d="M55.8619 39.1502L29.9127 81.3112L5.7036e-05 81.3116L55.8619 -7.07889e-05L55.8619 39.1502Z"/>
+      <defs>
+        <linearGradient id="${gradientId}" x1="32.1892" y1="30.3923" x2="58.3311" y2="48.2728" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#5E5E5E"/>
+          <stop offset="1" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>`;
+    section.appendChild(corner);
+  });
+}
+
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
@@ -83,6 +106,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateMulberryPreFooter(main);
 }
 
 /**

@@ -144,6 +144,10 @@
           {
             "name": "Light Pink",
             "value": "light-pink"
+          },
+          {
+            "name": "Mulberry Style Pre-Footer",
+            "value": "mulberry-style-pre-footer"
           }
         ]
       },

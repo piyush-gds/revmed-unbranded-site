@@ -1,26 +1,10 @@
 /* callout-banner block */
 .callout-banner {
-  position: relative;
-  background-color: var(--mulberry-color, #952460);
-  color: #fff;
   padding: 40px 50px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
   font: 700 24px/34px 'Lexend', sans-serif;
-  overflow: hidden;
-}
-
-/* decorative corner SVG */
-.callout-banner .callout-banner-corner {
-  position: absolute;
-  right: -5px;
-  bottom: -13px;
-}
-
-.callout-banner .callout-banner-corner svg {
-  width: 100%;
-  height: 100%;
 }
 
 /* content container */
@@ -57,10 +41,4 @@
     line-height: 28px;
   }
 
-  .callout-banner .callout-banner-corner {
-    right: -15px;
-    bottom: -10px;
-    width: 60px;
-    height: 75px;
-  }
 }

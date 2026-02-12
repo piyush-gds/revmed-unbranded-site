@@ -19,7 +19,7 @@ export default function decorate(block) {
 
   // Add decorative corner SVG
   const corner = document.createElement('div');
-  corner.className = 'callout-banner-corner';
+  corner.className = 'decorative-corner';
   const gradientId = `paint0_linear_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   corner.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="82" viewBox="0 0 56 82" fill="none">
     <path d="M55.8619 39.1502L29.9127 81.3112L5.7036e-05 81.3116L55.8619 -7.07889e-05L55.8619 39.1502Z" fill="url(#${gradientId})" fill-opacity="0.42" style="mix-blend-mode:multiply"/>
