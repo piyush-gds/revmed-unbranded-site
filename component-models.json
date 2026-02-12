@@ -156,6 +156,18 @@
     ]
   },
   {
+    "id": "bullets",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "callout-banner",
     "fields": [
       {
