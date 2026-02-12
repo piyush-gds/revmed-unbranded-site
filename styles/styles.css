@@ -67,24 +67,14 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-l);
-  line-height: 1.6;
 }
 
 body.appear {
   display: block;
 }
 
-main > div {
-  margin: 40px 16px;
-}
-
-/* sections */
-main > .section {
-  margin: 40px 0;
-}
-
 main > .section > div {
-  max-width: 1200px;
+  max-width: 912px;
   margin: auto;
 }
 
@@ -98,6 +88,10 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.spacer {
+  margin: 4.6875rem 0;
 }
 
 main .section.sky-blue {
@@ -354,6 +348,104 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007a87' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
+#ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mulberry-color);
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.875rem;
+}
 
+#ras-incancer .columns-wrapper {
+  margin-bottom: 2.5rem;
+}
 
+#ras-incancer .columns div {
+  gap: 1.875rem;
+  align-items: flex-start;
+}
 
+#ras-incancer .columns ul li {
+  margin-bottom: 0.625rem;
+}
+
+#ras-incancer .columns ul li::marker {
+  color: var(--mulberry-color);
+}
+
+#ras-incancer picture img {
+  width: 25.0625rem;
+  height: 8.4375rem;
+  aspect-ratio: 300/101;
+}
+
+#biomarkertesting * {
+  margin-bottom: 1.875rem;
+}
+
+#biomarkertesting > div > :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mulberry-color);
+}
+
+#biomarkertesting .columns .columns-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#biomarkertesting .columns div p picture img {
+  width: 12.5rem;
+  height: 10.5rem;
+  aspect-ratio: 25/21;
+}
+
+#biomarkertesting .columns > div {
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+#biomarkertesting .columns > div > div:first-child {
+  text-align: center;
+}
+
+#biomarkertesting .columns > div > div:last-child {
+  text-align: center;
+} 
+
+@media (width >= 900px) {
+  #biomarkertesting .columns > div > div:last-child {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  #biomarkertesting .columns > div > div:last-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(10.5rem + 1.875rem + 1.875rem);
+    bottom: 0;
+    width: 2px;
+    background-color: var(--mulberry-color);
+    width: 0.03125rem;
+    height: 13.875rem;
+  }
+}
+
+#biomarkertesting .columns div :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mulberry-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#biomarkertesting .columns div ul {
+  text-align: left;
+}
+
+#biomarkertesting .columns div ul li {
+  margin-bottom: 0.625rem;
+}
+
+#biomarkertesting .columns div ul li::marker {
+  color: var(--mulberry-color);
+}

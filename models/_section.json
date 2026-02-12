@@ -35,6 +35,10 @@
               "value": "highlight"
             },
             {
+              "name": "Spacer",
+              "value": "spacer"
+            },
+            {
               "name": "Sky Blue",
               "value": "sky-blue"
             },
