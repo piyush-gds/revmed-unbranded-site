@@ -86,17 +86,10 @@ main > .section {
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
 }
 
 /* section metadata */
@@ -172,7 +165,74 @@ main .section.mulberry-style-pre-footer a,
 /* Mulberry Style Pre-Footer */
 main .section.mulberry-style-pre-footer {
   margin: 0;
-  padding: 40px 0;
+  padding: 30px 0;
+}
+
+main .section.mulberry-style-pre-footer img {
+  width: 23.1875rem;
+  height: 8.0625rem;
+  aspect-ratio: 371/129;
+}
+
+main .section.mulberry-style-pre-footer .columns > div {
+  justify-content: center;
+  gap: 75px;
+}
+
+main .section.mulberry-style-pre-footer .columns > div > div {
+  flex: unset;
+}
+
+main .section.mulberry-style-pre-footer a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 8px 10px;
+  background-color: var(--green-color, #007580);
+  color: #fff;
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  border: 2px solid var(--green-color, #007580);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+main .section.mulberry-style-pre-footer .button-container {
+ padding-top: 20px;
+}
+
+main .section.mulberry-style-pre-footer a.button:hover {
+  background-color: #fff;
+  color: var(--green-color, #007580);
+}
+
+main .section.mulberry-style-pre-footer a.button::after {
+  content: '';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23007580' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 16px;
+  transition: all 0.2s ease;
+}
+
+main .section.mulberry-style-pre-footer a.button:hover::after {
+  background-color: var(--green-color, #007580);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 /* Accordion Styles */
