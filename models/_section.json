@@ -41,10 +41,6 @@
             {
               "name": "Light Pink",
               "value": "light-pink"
-            },
-            {
-              "name": "Bullets Text style",
-              "value": "bullets-style"
             }
           ]
         },
@@ -69,7 +65,8 @@
         "cards",
         "columns",
         "fragment",
-        "callout-banner"
+        "callout-banner",
+        "bullets"
       ]
     }
   ]
