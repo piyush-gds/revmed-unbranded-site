@@ -37,8 +37,9 @@ header nav[aria-expanded='true'] {
 }
 
 header .nav-wrapper.nav-desktop {
-  position: relative;
-  box-shadow: none;
+  position: fixed;
+  height: var(--nav-height);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   border-bottom: 1px solid #e0e0e0;
 }
 

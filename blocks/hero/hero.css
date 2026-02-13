@@ -4,6 +4,7 @@
 }
 
 .hero {
+  margin-top: var(--nav-height);
   position: relative;
   height: 21.875rem;
   display: flex;
@@ -11,7 +12,6 @@
   align-items: flex-start;
   justify-content: center;
   padding: 3.125rem 10.625rem;
-  width: 90rem;
   color: var(--background-color);
 }
 
@@ -30,5 +30,10 @@
 }
 
 .hero div:nth-child(2) div {
-  padding-left: 90px;
+  padding-left: 5.625rem;
+}
+
+.hero div:nth-child(3) div {
+  margin-top: 1.2rem;
+  padding-left: 5.625rem;
 }
