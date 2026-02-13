@@ -1,4 +1,6 @@
 :root {
+  --nav-height: 4rem;
+
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;

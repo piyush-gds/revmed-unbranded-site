@@ -5,14 +5,13 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 21.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3.125rem 10.625rem;
+  width: 90rem;
   color: var(--background-color);
 }
 
@@ -30,8 +29,6 @@
   height: 100%;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
+.hero div:nth-child(2) div {
+  padding-left: 90px;
 }

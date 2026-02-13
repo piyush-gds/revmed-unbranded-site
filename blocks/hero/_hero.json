@@ -36,9 +36,16 @@
         },
         {
           "component": "richtext",
-          "name": "text",
+          "name": "headline",
           "value": "",
-          "label": "Text",
+          "label": "Headline",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "value": "",
+          "label": "Description",
           "valueType": "string"
         }
       ]

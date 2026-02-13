@@ -4,7 +4,6 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
-  padding: 1.25rem 4.28rem;
   top: 0;
   left: 0;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
@@ -37,26 +36,24 @@ header nav[aria-expanded='true'] {
   background-color: var(--background-color);
 }
 
-@media (width >= 900px) {
-  header .nav-wrapper {
-    position: relative;
-    box-shadow: none;
-    border-bottom: 1px solid #e0e0e0;
-  }
+header .nav-wrapper.nav-desktop {
+  position: relative;
+  box-shadow: none;
+  border-bottom: 1px solid #e0e0e0;
+}
 
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
+header nav.nav-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  max-width: 1264px;
+  padding: 0 32px;
+}
 
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
+header nav.nav-desktop[aria-expanded='true'] {
+  min-height: 0;
+  overflow: visible;
 }
 
 header nav p {
@@ -149,11 +146,9 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   transform: translateY(-50%) rotate(-45deg);
 }
 
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
+header nav.nav-desktop .nav-hamburger {
+  display: none;
+  visibility: hidden;
 }
 
 /* brand */
@@ -168,14 +163,12 @@ header nav .nav-brand img {
   height: auto;
 }
 
-@media (width >= 900px) {
-  header nav .nav-brand {
-    margin-right: 3.12rem;
-  }
+header nav.nav-desktop .nav-brand {
+  margin-right: 3.12rem;
+}
 
-  header nav .nav-brand img {
-    width: 160px;
-  }
+header nav.nav-desktop .nav-brand img {
+  width: 160px;
 }
 
 /* sections */
@@ -190,7 +183,6 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
-  padding-top: 24px;
   width: 100%;
 }
 
@@ -217,9 +209,13 @@ header nav .nav-sections ul > li a {
   text-decoration: none;
 }
 
+header nav .nav-sections ul > li.active {
+  border-bottom: 3px solid var(--mulberry-color);
+}
+
 header nav .nav-sections ul > li.active a {
   color: var(--mulberry-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Chevron arrows for all links except CTA */
@@ -232,7 +228,7 @@ header nav .nav-sections ul > li:not(.nav-cta)::after {
 }
 
 header nav .nav-sections ul > li.active:not(.nav-cta)::after {
-  color: var(--mulberry-color);
+  display: none;
 }
 
 /* CTA button - mobile */
@@ -257,64 +253,62 @@ header nav .nav-sections ul > li.nav-cta a:hover {
   background-color: #005a63;
 }
 
-@media (width >= 900px) {
-  header nav .nav-sections {
-    display: flex;
-    visibility: visible;
-    white-space: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-  }
+header nav.nav-desktop .nav-sections {
+  display: flex;
+  visibility: visible;
+  white-space: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-    padding-top: 0;
-  }
+header nav.nav-desktop[aria-expanded='true'] .nav-sections {
+  align-self: unset;
+  padding-top: 0;
+}
 
-  header nav .nav-sections .default-content-wrapper {
-    display: flex;
-    align-items: center;
-  }
+header nav.nav-desktop .nav-sections .default-content-wrapper {
+  display: flex;
+  align-items: center;
+}
 
-  header nav .nav-sections ul {
-    display: flex;
-    align-items: center;
-    margin: 0;
-  }
+header nav.nav-desktop .nav-sections ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
 
-  header nav .nav-sections ul > li {
-    flex: 0 0 auto;
-    position: relative;
-    padding: 8px 24px;
-    border-top: none;
-    display: block;
-  }
+header nav.nav-desktop .nav-sections ul > li {
+  flex: 0 0 auto;
+  position: relative;
+  padding: 8px 24px;
+  border-top: none;
+  display: block;
+}
 
-  /* Remove chevrons on desktop */
-  header nav .nav-sections ul > li:not(.nav-cta)::after {
-    display: none;
-  }
+/* Remove chevrons on desktop */
+header nav.nav-desktop .nav-sections ul > li:not(.nav-cta)::after {
+  display: none;
+}
 
-  /* Vertical separator between links */
-  header nav .nav-sections ul > li.has-separator::after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 20px;
-    width: 1px;
-    background-color: #c4c4c4;
-  }
+/* Vertical separator between links */
+header nav.nav-desktop .nav-sections ul > li.has-separator::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 1px;
+  background-color: #c4c4c4;
+}
 
-  /* CTA button - desktop */
-  header nav .nav-sections ul > li.nav-cta {
-    margin-left: 3.12rem;
-    padding: 0;
-  }
+/* CTA button - desktop */
+header nav.nav-desktop .nav-sections ul > li.nav-cta {
+  margin-left: 3.12rem;
+  padding: 0;
+}
 
-  header nav .nav-sections ul > li.nav-cta a {
-    padding: 12px 28px;
-  }
+header nav.nav-desktop .nav-sections ul > li.nav-cta a {
+  padding: 12px 28px;
 }

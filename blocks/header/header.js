@@ -1,8 +1,38 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-// media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+/**
+ * Checks if the nav items fit in a single row and toggles desktop/mobile mode.
+ * This replaces a fixed media-query breakpoint with a content-aware approach.
+ * @param {Element} navWrapper The nav wrapper element
+ * @param {Element} nav The nav element
+ * @param {Element} navSections The nav sections element
+ */
+function checkNavFit(navWrapper, nav, navSections) {
+  if (!navSections) return;
+
+  const wasDesktop = nav.classList.contains('nav-desktop');
+
+  // Temporarily force desktop layout to measure if items fit
+  nav.classList.add('nav-desktop');
+  navWrapper.classList.add('nav-desktop');
+
+  // Check if content overflows the nav container
+  const fits = nav.scrollWidth <= nav.clientWidth;
+
+  if (!fits) {
+    // Items don't fit — revert to hamburger mode
+    nav.classList.remove('nav-desktop');
+    navWrapper.classList.remove('nav-desktop');
+  }
+
+  // Handle state transitions
+  if (fits && !wasDesktop) {
+    toggleMenu(nav, navSections, true);
+  } else if (!fits && wasDesktop) {
+    toggleMenu(nav, navSections, false);
+  }
+}
 
 /**
  * Toggles the entire nav
@@ -13,7 +43,8 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  const isDesktopMode = nav.classList.contains('nav-desktop');
+  document.body.style.overflowY = (expanded || isDesktopMode) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
 }
@@ -83,7 +114,7 @@ export default async function decorate(block) {
             navItem.classList.add('active');
             
             // Close mobile menu if open
-            if (!isDesktop.matches && nav.getAttribute('aria-expanded') === 'true') {
+            if (!nav.classList.contains('nav-desktop') && nav.getAttribute('aria-expanded') === 'true') {
               toggleMenu(nav, navSections);
             }
             
@@ -116,11 +147,16 @@ export default async function decorate(block) {
   }
   nav.setAttribute('aria-expanded', 'false');
 
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
-
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // Dynamically switch between desktop links and hamburger menu
+  // based on whether nav items fit in the available header width
+  checkNavFit(navWrapper, nav, navSections);
+  window.addEventListener('resize', () => checkNavFit(navWrapper, nav, navSections));
+
+  // Re-check after fonts load since text widths may change
+  document.fonts.ready.then(() => checkNavFit(navWrapper, nav, navSections));
 }
