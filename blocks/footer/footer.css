@@ -62,11 +62,11 @@ footer .footer .columns > div {
   gap: 19px;
 }
 
-footer .footer .columns .columns-img-col {
-  flex: none;
+footer .footer .columns > div > div:first-child {
+  flex: unset;
 }
 
-footer .footer .columns .columns-img-col img {
+footer .footer .columns img {
   max-width: 250px;
   aspect-ratio: 125 / 39;
 }
