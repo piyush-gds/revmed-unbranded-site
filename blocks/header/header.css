@@ -204,19 +204,21 @@ header nav .nav-sections ul > li {
 }
 
 header nav .nav-sections ul > li a {
-  color: var(--light-blue-color);
+  color: var(--green-color);
   font-weight: 600;
   flex: 1;
   text-decoration: none;
 }
 
 header nav .nav-sections ul > li.active {
-  border-bottom: 3px solid var(--mulberry-color);
+  border-bottom: none;
 }
 
 header nav .nav-sections ul > li.active a {
   color: var(--mulberry-color);
   text-decoration: none;
+  border-bottom: 3px solid var(--mulberry-color);
+  padding-bottom: 2px;
 }
 
 /* Chevron arrows for all links except CTA */
@@ -224,7 +226,7 @@ header nav .nav-sections ul > li:not(.nav-cta)::after {
   content: '\203A';
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--light-blue-color);
+  color: var(--green-color);
   margin-left: 8px;
 }
 
@@ -241,13 +243,18 @@ header nav .nav-sections ul > li.nav-cta {
 
 header nav .nav-sections ul > li.nav-cta a {
   display: inline-block;
-  background-color: var(--green-color);
   color: white;
-  padding: 12px 32px;
-  border-radius: 24px;
-  font-weight: 500;
+  padding: 12px 40px;
+  border-radius: 0;
+  font-weight: 700;
   font-size: var(--body-font-size-m);
   text-align: center;
+}
+
+header nav .nav-sections ul > li.nav-cta {
+  background-color: var(--green-color);
+  color: white;
+  transform: skewX(-10deg);
 }
 
 header nav .nav-sections ul > li.nav-cta a:hover {
@@ -302,14 +309,4 @@ header nav.nav-desktop .nav-sections ul > li.has-separator::after {
   height: 20px;
   width: 1px;
   background-color: #c4c4c4;
-}
-
-/* CTA button - desktop */
-header nav.nav-desktop .nav-sections ul > li.nav-cta {
-  margin-left: 3.12rem;
-  padding: 0;
-}
-
-header nav.nav-desktop .nav-sections ul > li.nav-cta a {
-  padding: 12px 28px;
 }
