@@ -42,11 +42,21 @@ function checkNavFit(navWrapper, nav, navSections) {
  */
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
+  const nextExpanded = !expanded;
   const button = nav.querySelector('.nav-hamburger button');
   const isDesktopMode = nav.classList.contains('nav-desktop');
-  document.body.style.overflowY = (expanded || isDesktopMode) ? '' : 'hidden';
-  nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  document.body.style.overflowY = '';
+  nav.setAttribute('aria-expanded', nextExpanded ? 'true' : 'false');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+
+  const navWrapper = nav.closest('.nav-wrapper');
+  if (isDesktopMode || !nextExpanded) {
+    document.body.classList.remove('nav-expanded');
+    document.body.style.removeProperty('--nav-expanded-height');
+  } else if (navWrapper) {
+    document.body.classList.add('nav-expanded');
+    document.body.style.setProperty('--nav-expanded-height', `${navWrapper.offsetHeight}px`);
+  }
 }
 
 /**

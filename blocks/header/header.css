@@ -31,9 +31,12 @@ header nav[aria-expanded='true'] {
     'brand hamburger'
     'sections sections';
   height: auto;
-  overflow-y: auto;
-  min-height: 100dvh;
+  overflow: visible;
   background-color: var(--background-color);
+}
+
+body.nav-expanded main {
+  padding-top: calc(var(--nav-expanded-height, var(--nav-height)) - var(--nav-height));
 }
 
 header .nav-wrapper.nav-desktop {

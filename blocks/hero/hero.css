@@ -15,6 +15,13 @@
   color: var(--background-color);
 }
 
+/* Variant hooks */
+.hero.hero--primary {
+}
+
+.hero.hero--secondary {
+}
+
 .hero picture {
   position: absolute;
   z-index: -1;

@@ -21,6 +21,21 @@
       "id": "hero",
       "fields": [
         {
+          "component": "select",
+          "name": "heroBannerVariant",
+          "label": "Hero Banner Variant",
+          "options": [
+            {
+              "name": "Primary",
+              "value": "primary"
+            },
+            {
+              "name": "Secondary",
+              "value": "secondary"
+            }
+          ]
+        },
+        {
           "component": "reference",
           "valueType": "string",
           "name": "image",
