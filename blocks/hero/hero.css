@@ -6,20 +6,22 @@
 .hero {
   margin-top: var(--nav-height);
   position: relative;
-  height: 21.875rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
   padding: 3.125rem 0;
+}
+
+/* Hero Banner Variants */
+.hero.hero--primary {
+  height: 21.875rem;
   color: var(--background-color);
 }
 
-/* Variant hooks */
-.hero.hero--primary {
-}
-
 .hero.hero--secondary {
+  height: 12.75rem;
+  color: var(--text-color);
 }
 
 .hero picture {
