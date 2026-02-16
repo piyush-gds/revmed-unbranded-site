@@ -125,8 +125,8 @@
 
 .image-stack-note {
   position: absolute;
-  top: calc(var(--image2-top) + var(--image2-height) + var(--image2-line-gap) + var(--image2-line-thickness) + 0.75rem);
-  left: 15%;
+  top: calc(var(--image2-top) + var(--image2-height) + var(--image2-line-gap) + var(--image2-line-thickness) + 0.5rem);
+  right: 66%;
   font-size: 0.75rem;
 }
 

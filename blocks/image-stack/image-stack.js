@@ -57,7 +57,7 @@ export default function decorate(block) {
 
     const noteSource = noteRow.querySelector('p') || noteRow;
     noteEl.append(...noteSource.childNodes);
-    mediaCol.append(noteEl);
+    media.append(noteEl);
   }
 
   const contentCol = document.createElement('div');
