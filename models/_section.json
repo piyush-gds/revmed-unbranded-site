@@ -80,7 +80,8 @@
         "columns",
         "fragment",
         "callout-banner",
-        "bullets"
+        "bullets",
+        "image-stack"
       ]
     }
   ]
