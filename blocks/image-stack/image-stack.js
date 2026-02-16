@@ -33,6 +33,12 @@ export default function decorate(block) {
     media.append(picture);
   });
 
+  const topLine = document.createElement('div');
+  topLine.className = 'image-stack-line image-stack-line--top';
+  const bottomLine = document.createElement('div');
+  bottomLine.className = 'image-stack-line image-stack-line--bottom';
+  media.append(topLine, bottomLine);
+
   mediaCol.append(media);
 
   let noteRow = null;

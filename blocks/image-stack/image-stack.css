@@ -1,6 +1,7 @@
 .image-stack-wrapper {
   max-width: unset !important;
   margin: unset !important;
+  overflow: hidden;
 }
 
 .image-stack {
@@ -14,12 +15,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: visible;
 }
 
 .image-stack-media {
   position: relative;
   width: 100%;
   aspect-ratio: 585 / 400;
+  overflow: visible;
+  --image2-top: 14%;
+  --image2-height: 73.1%;
+  --image2-line-width: 34%;
+  --image2-line-gap: 0.75rem;
+  --image2-line-thickness: 3px;
 }
 
 .image-stack-img {
@@ -42,11 +50,11 @@
 }
 
 .image-stack-img--2 {
-  top: 14%;
+  top: var(--image2-top);
   left: 0;
   z-index: 2;
   width: 100%;
-  height: 73.1%;
+  height: var(--image2-height);
   isolation: isolate;
 }
 
@@ -96,24 +104,32 @@
   pointer-events: none;
 }
 
-.image-stack-note {
-  margin-top: 1.75rem;
-  margin-left: 3.75rem;
-  padding-top: 0.75rem;
-  position: relative;
-  font-size: 0.75rem;
-  color: #5e5e5e;
+.image-stack-line {
+  position: absolute;
+  right: 7%;
+  width: var(--image2-line-width);
+  height: var(--image2-line-thickness);
+  background: var(--light-blue-color, #86C1E4);
+  z-index: 4;
+  pointer-events: none;
 }
 
-.image-stack-note::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 7rem;
-  height: 2px;
-  background: var(--light-blue-color, #86C1E4);
+.image-stack-line--top {
+  top: calc(var(--image2-top) + 10%);
 }
+
+.image-stack-line--bottom {
+  top: calc(var(--image2-top) + var(--image2-height) + var(--image2-line-gap));
+  left: 0;
+}
+
+.image-stack-note {
+  position: absolute;
+  top: calc(var(--image2-top) + var(--image2-height) + var(--image2-line-gap) + var(--image2-line-thickness) + 0.75rem);
+  left: 15%;
+  font-size: 0.75rem;
+}
+
 
 @media (min-width: 900px) {
   .image-stack {
