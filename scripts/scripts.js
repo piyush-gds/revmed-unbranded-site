@@ -149,6 +149,15 @@ async function loadLazy(doc) {
 
   loadFooter(doc.querySelector('footer'));
 
+  // Back to Top smooth scroll
+  const backToTopBtn = doc.querySelector('.sticky-button-style .button-container:last-child a.button');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 }

@@ -152,6 +152,10 @@
           {
             "name": "Mulberry Style Pre-Footer",
             "value": "mulberry-style-pre-footer"
+          },
+          {
+            "name": "Sticky Button Style",
+            "value": "sticky-button-style"
           }
         ]
       },
