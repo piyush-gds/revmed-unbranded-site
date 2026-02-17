@@ -12,8 +12,26 @@ export default function decorate(block) {
     variantRow.remove();
   }
 
+  const pictures = [...block.querySelectorAll('picture')];
+  if (pictures.length >= 2) {
+    const desktopPicture = pictures[0];
+    const mobilePicture = pictures[1];
+
+    if (desktopPicture) desktopPicture.classList.add('hero-image--desktop');
+    if (mobilePicture) mobilePicture.classList.add('hero-image--mobile');
+
+    const mobileRow = rows.find((row) => row.contains(mobilePicture));
+    if (mobileRow) {
+      mobileRow.remove();
+    }
+  }
+
   const lastChild = block.lastElementChild;
   if (lastChild) {
+    const insetNote = lastChild.cloneNode(true);
+    insetNote.classList.add("hero-disclaimer", "hero-disclaimer--inset");
+    block.appendChild(insetNote);
+
     lastChild.classList.add("hero-disclaimer");
     const wrapper = block.closest(".hero-wrapper");
     if (wrapper) {

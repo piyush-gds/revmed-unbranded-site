@@ -38,6 +38,20 @@
   height: 100%;
 }
 
+.hero .hero-image--mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hero .hero-image--desktop {
+    display: none;
+  }
+
+  .hero .hero-image--mobile {
+    display: block;
+  }
+}
+
 .hero div:nth-child(2) div,
 .hero div:nth-child(3) div {
   max-width: 912px;
@@ -70,4 +84,30 @@
 .hero-wrapper .hero-disclaimer p {
   font-size: 0.75rem;
   font-weight: 300;
+}
+
+.hero .hero-disclaimer--inset {
+  display: none;
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  margin: 0;
+  color: #fff;
+}
+
+.hero .hero-disclaimer--inset p {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .hero-wrapper .hero-disclaimer {
+    display: none;
+  }
+
+  .hero .hero-disclaimer--inset {
+    display: block;
+  }
 }
