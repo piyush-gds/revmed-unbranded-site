@@ -14,9 +14,13 @@
 }
 
 @media (max-width: 900px) {
-  .hero {
+  .hero.hero.hero--primary {
     justify-content: end;
     padding: 2.5rem 0;
+  }
+  .hero.hero--secondary {
+    justify-content: end;
+    padding: 1.25rem;
   }
 }
 
@@ -76,8 +80,8 @@
 @media (max-width: 900px) {
   .hero div:nth-child(4) div,
   .hero div:nth-child(5) div {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -117,7 +121,7 @@
   .hero .hero-disclaimer--inset {
     display: block;
   }
-  
+
   .hero--secondary .hero-disclaimer p {
     color: var(--text-color)
   }
