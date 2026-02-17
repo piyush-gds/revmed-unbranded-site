@@ -99,19 +99,17 @@ main .section.spacer {
 
 @media (width <= 900px) {
   main .section.spacer {
-    margin: 2.5rem 0;
+    margin: 2.5rem 10px;
   }
 }
 
 main .section.sky-blue {
   background-color: var(--sky-blue-color);
-  margin: 0;
   padding: 40px 0;
 }
 
 main .section.light-pink {
   background-color: var(--light-pink-color);
-  margin: 0;
   padding: 40px 0;
 }
 
@@ -417,6 +415,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
 #ras-incancer .columns ul li {
   margin-bottom: 0.625rem;
+  margin-left: 2rem;
 }
 
 #ras-incancer .columns ul li::marker {
@@ -511,6 +510,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
 #biomarkertesting .columns div ul li {
   margin-bottom: 0.625rem;
+  margin-left: 2rem;
 }
 
 #biomarkertesting .columns div ul li::marker {
@@ -554,6 +554,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
   #biomarkertesting .columns > div > div > :nth-child(n + 3) {
     grid-column: 1 / -1;
+    margin-top: 15px;
   }
 
   #biomarkertesting .columns div :is(h1, h2, h3, h4, h5, h6) {

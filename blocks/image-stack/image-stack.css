@@ -123,6 +123,18 @@
   left: 0;
 }
 
+.image-stack .image-stack-content ul {
+  margin-top: 30px;
+}
+
+.image-stack .image-stack-content ul li {
+  margin-left: 2rem;
+}
+
+.image-stack .image-stack-content ul li::marker {
+  color: var(--mulberry-color);
+}
+
 .image-stack-note {
   position: absolute;
   top: calc(var(--image2-top) + var(--image2-height) + var(--image2-line-gap) + var(--image2-line-thickness) + 0.5rem);
@@ -162,9 +174,5 @@
 
   .image-stack .image-stack-content ul li {
     font-size: 18px;
-  }
-
-  .image-stack .image-stack-content ul li::marker {
-    color: var(--mulberry-color);
   }
 }

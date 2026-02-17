@@ -9,6 +9,11 @@ header .nav-wrapper {
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
+header .nav-wrapper:not(.nav-desktop) {
+  background-color: #fff;
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%);
+}
+
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -206,6 +211,12 @@ header nav .nav-sections ul > li {
   align-items: center;
 }
 
+header nav:not(.nav-desktop) .nav-sections ul > li {
+  border-top: none;
+  border-bottom: 2px solid var(--green-color);
+  padding: 18px 0;
+}
+
 header nav .nav-sections ul > li a {
   color: var(--green-color);
   font-weight: 600;
@@ -222,6 +233,15 @@ header nav .nav-sections ul > li.active a {
   text-decoration: none;
   border-bottom: 3px solid var(--mulberry-color);
   padding-bottom: 2px;
+}
+
+header nav:not(.nav-desktop) .nav-sections ul > li.active {
+  border-bottom: 2px solid var(--mulberry-color);
+}
+
+header nav:not(.nav-desktop) .nav-sections ul > li.active a {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 /* Chevron arrows for all links except CTA */
