@@ -60,6 +60,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  word-break: break-word;
 }
 
 body {
@@ -96,6 +97,12 @@ main .section.spacer {
   margin: 4.6875rem 0;
 }
 
+@media (width <= 900px) {
+  main .section.spacer {
+    margin: 2.5rem 0;
+  }
+}
+
 main .section.sky-blue {
   background-color: var(--sky-blue-color);
   margin: 0;
@@ -128,6 +135,12 @@ main .section.mulberry-style-pre-footer :is(h1, h2, h3, h4, h5, h6),
 main .section.mulberry-style-pre-footer p,
 .callout-banner p {
   color: #fff;
+}
+
+@media (width <= 900px) {
+  main .section.mulberry-style-pre-footer p {
+    text-align: center;
+  }
 }
 
 .mulberry-bg a,
@@ -343,6 +356,34 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   color: var(--link-color);
 }
 
+@media (width <= 900px) {
+  .section[data-accordion] .accordion-card {
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+  }
+
+  .section[data-accordion] .accordion-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .section[data-accordion] .accordion-card-body {
+    gap: 6px;
+    padding: 12px 16px;
+  }
+
+  .section[data-accordion] .accordion-card-body a {
+    color: var(--green-color, #007580);
+    text-decoration: underline;
+  }
+}
+
 .section[data-accordion] .accordion-card-body a::after {
   content: '';
   width: 12px;
@@ -378,6 +419,20 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   width: 25.0625rem;
   height: 8.4375rem;
   aspect-ratio: 300/101;
+}
+
+@media (width <= 900px) {
+  #ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 2rem;
+  }
+
+  #ras-incancer .columns div {
+    flex-direction: column-reverse;
+  }
+
+  #ras-incancer picture img {
+    width: 100%;
+  }
 }
 
 #biomarkertesting * {
@@ -450,6 +505,56 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
 #biomarkertesting .columns div ul li::marker {
   color: var(--mulberry-color);
+}
+
+@media (width <= 900px) {
+  #biomarkertesting .columns > div {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  #biomarkertesting .columns div p picture img {
+    width: 100px;
+    height: 99px;
+    flex-shrink: 0;
+    aspect-ratio: 100 / 99;
+    margin-bottom: 0;
+  }
+
+  #biomarkertesting .columns > div > div {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    column-gap: 20px;
+    row-gap: 0;
+    align-items: start;
+    text-align: left;
+  }
+
+  #biomarkertesting .columns > div > div > :first-child {
+    grid-column: 1;
+    margin-bottom: 0;
+  }
+
+  #biomarkertesting .columns > div > div > :nth-child(2) {
+    grid-column: 2;
+    align-self: center;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  #biomarkertesting .columns > div > div > :nth-child(n + 3) {
+    grid-column: 1 / -1;
+  }
+
+  #biomarkertesting .columns div :is(h1, h2, h3, h4, h5, h6) {
+    text-align: left;
+  }
+
+  #biomarkertesting .columns div ul,
+  #ras-incancer .columns ul {
+    padding-left: 1.25rem;
+    list-style-position: outside;
+  }
 }
 
 /* Sticky Buttons Section */

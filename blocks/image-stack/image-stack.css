@@ -137,3 +137,25 @@
     gap: 3rem;
   }
 }
+
+@media (width <= 900px) {
+  .image-stack {
+    direction: ltr;
+  }
+
+  .image-stack > :first-child {
+    order: 2;
+  }
+
+  .image-stack > :last-child {
+    order: 1;
+  }
+
+  .image-stack .image-stack-content:is(h1, h2, h3, h4, h5, h6) {
+    font-size: 2rem;
+  }
+
+  .image-stack .image-stack-content ul li {
+    font-size: 18px;
+  }
+}

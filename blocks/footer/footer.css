@@ -76,6 +76,40 @@ footer .footer .columns > div > div:last-child {
   color: #000;
 }
 
+@media (width <= 900px) {
+  footer .footer > div {
+    padding: 32px 20px;
+  }
+
+  footer .footer .default-content-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  footer .footer .default-content-wrapper .button-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  footer .footer .default-content-wrapper .button-container::after {
+    width: 100%;
+    height: 1px;
+    margin: 8px 0;
+  }
+
+  footer .footer .default-content-wrapper a.button {
+    text-decoration: none;
+    text-align: center;
+  }
+
+  footer .footer .columns > div {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px;
