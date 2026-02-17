@@ -25,3 +25,17 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+.cards .cards-card-image .cards-image--mobile {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .cards .cards-card-image .cards-image--desktop {
+    display: none;
+  }
+
+  .cards .cards-card-image .cards-image--mobile {
+    display: block;
+  }
+}

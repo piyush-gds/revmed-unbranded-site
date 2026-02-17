@@ -463,8 +463,12 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 }
 
-#biomarkertesting * {
+/* #biomarkertesting * {
   margin-bottom: 1.875rem;
+} */
+
+#biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 30px;
 }
 
 #biomarkertesting > div > :is(h1, h2, h3, h4, h5, h6) {
@@ -537,8 +541,12 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 }
 
 @media (width <= 900px) {
-  #biomarkertesting * {
+  /* #biomarkertesting * {
     margin-bottom: 1.25rem;
+  } */
+
+  #biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 20px;
   }
 
   #biomarkertesting .columns > div {

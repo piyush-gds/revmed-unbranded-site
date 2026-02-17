@@ -19,5 +19,28 @@ export default function decorate(block) {
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
+
+  ul.querySelectorAll('li').forEach((li) => {
+    const pictures = [...li.querySelectorAll('picture')];
+    if (pictures.length >= 2) {
+      const desktopPicture = pictures[0];
+      const mobilePicture = pictures[1];
+      const desktopContainer = desktopPicture.closest('.cards-card-image') || desktopPicture.parentElement;
+      const mobileContainer = mobilePicture.closest('.cards-card-image');
+
+      desktopPicture.classList.add('cards-image--desktop');
+      mobilePicture.classList.add('cards-image--mobile');
+
+      if (desktopContainer && mobilePicture.parentElement !== desktopContainer) {
+        desktopContainer.appendChild(mobilePicture);
+      }
+
+      if (mobileContainer && mobileContainer !== desktopContainer && mobileContainer.children.length === 0) {
+        mobileContainer.remove();
+      }
+    } else if (pictures.length === 1) {
+      pictures[0].classList.add('cards-image--desktop');
+    }
+  });
   block.replaceChildren(ul);
 }
