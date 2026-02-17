@@ -19,11 +19,6 @@ export default function decorate(block) {
 
     if (desktopPicture) desktopPicture.classList.add('hero-image--desktop');
     if (mobilePicture) mobilePicture.classList.add('hero-image--mobile');
-
-    const mobileRow = rows.find((row) => row.contains(mobilePicture));
-    if (mobileRow) {
-      mobileRow.remove();
-    }
   }
 
   const lastChild = block.lastElementChild;

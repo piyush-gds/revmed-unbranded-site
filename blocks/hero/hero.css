@@ -13,6 +13,13 @@
   padding: 3.125rem 0;
 }
 
+@media (max-width: 900px) {
+  .hero {
+    justify-content: end;
+    padding: 2.5rem 0;
+  }
+}
+
 /* Hero Banner Variants */
 .hero.hero--primary {
   height: 21.875rem;
@@ -52,8 +59,8 @@
   }
 }
 
-.hero div:nth-child(2) div,
-.hero div:nth-child(3) div {
+.hero div:nth-child(4) div,
+.hero div:nth-child(5) div {
   max-width: 912px;
   margin-left: auto;
   margin-right: auto;
@@ -62,13 +69,13 @@
   padding-right: 0;
 }
 
-.hero div:nth-child(3) div {
+.hero div:nth-child(5) div {
   margin-top: 1.2rem;
 }
 
 @media (max-width: 960px) {
-  .hero div:nth-child(2) div,
-  .hero div:nth-child(3) div {
+  .hero div:nth-child(4) div,
+  .hero div:nth-child(5) div {
     padding-left: 24px;
     padding-right: 24px;
   }
