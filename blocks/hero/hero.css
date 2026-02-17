@@ -73,7 +73,7 @@
   margin-top: 1.2rem;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 900px) {
   .hero div:nth-child(4) div,
   .hero div:nth-child(5) div {
     padding-left: 24px;
@@ -116,5 +116,9 @@
 
   .hero .hero-disclaimer--inset {
     display: block;
+  }
+  
+  .hero--secondary .hero-disclaimer p {
+    color: var(--text-color)
   }
 }
