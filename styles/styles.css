@@ -237,7 +237,11 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 }
 
 @media (width <= 900px) {
-  main .section.mulberry-style-pre-footer p {
+  main .section.mulberry-style-pre-footer {
+    padding: 40px 20px;
+  }
+
+   main .section.mulberry-style-pre-footer p {
     text-align: center;
   }
 
@@ -246,6 +250,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   main .section.mulberry-style-pre-footer img {
+    width: 100%;
     margin: 0 auto;
   }
 }
@@ -321,7 +326,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 .section[data-accordion] .accordion-cards-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
   padding: 40px 0;
 }
 
@@ -363,6 +368,11 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 }
 
 @media (width <= 900px) {
+
+  .section[data-accordion] .accordion-cards-wrapper {
+    padding: 30px 0;
+  }
+
   .section[data-accordion] .accordion-card {
     flex-direction: column;
     align-items: stretch;
@@ -431,6 +441,15 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 @media (width <= 900px) {
   #ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
     font-size: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  #ras-incancer .columns ul li {
+    margin-left: 30px;
+  }
+
+  #ras-incancer .columns-wrapper {
+    margin-bottom: 1.25rem;
   }
 
   #ras-incancer .columns div {
@@ -444,8 +463,12 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 }
 
-#biomarkertesting * {
+/* #biomarkertesting * {
   margin-bottom: 1.875rem;
+} */
+
+#biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 30px;
 }
 
 #biomarkertesting > div > :is(h1, h2, h3, h4, h5, h6) {
@@ -518,6 +541,14 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 }
 
 @media (width <= 900px) {
+  /* #biomarkertesting * {
+    margin-bottom: 1.25rem;
+  } */
+
+  #biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 20px;
+  }
+
   #biomarkertesting .columns > div {
     flex-direction: column;
     gap: 1.5rem;
@@ -561,9 +592,28 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
     text-align: left;
   }
 
+  #biomarkertesting div h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  #biomarkertesting div h2 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  #biomarkertesting div h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+  }
+
+  #biomarkertesting .columns div ul li {
+    margin-left: 30px;
+  }
+
   #biomarkertesting .columns div ul,
   #ras-incancer .columns ul {
-    padding-left: 1.25rem;
     list-style-position: outside;
   }
 }

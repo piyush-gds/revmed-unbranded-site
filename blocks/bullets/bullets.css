@@ -29,3 +29,14 @@
 .bullet-text {
   display: block;
 }
+
+@media (max-width: 900px) {
+  .bullets-container {
+    margin-top: -1.25rem;
+  }
+
+  .bullets-list {
+    padding: 20px 0 30px 0;
+    gap: 10px;
+  }
+}
