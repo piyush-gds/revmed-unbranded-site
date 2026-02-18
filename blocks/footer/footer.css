@@ -52,6 +52,7 @@ footer .footer .default-content-wrapper a.button {
   padding: 0;
   font: 600 1rem 'Lexend', sans-serif;
   color: var(--green-color, #007580);
+  text-decoration: none;
 }
 
 footer .footer .default-content-wrapper a.button:hover {

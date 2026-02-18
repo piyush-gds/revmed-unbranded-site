@@ -484,6 +484,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   color: var(--mulberry-color, #952460);
   background: white;
   border: none;
+  text-decoration: none;
 }
 
 .sticky-button-style .button-container:last-child a.button::before {

@@ -163,6 +163,7 @@ async function loadLazy(doc) {
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
+    if (anchor.closest('.modal')) return;
     const href = anchor.getAttribute('href');
     if (!href) return;
     try {
@@ -171,7 +172,7 @@ async function loadLazy(doc) {
       if (isExternal) {
         e.preventDefault();
         import('../blocks/modal/modal.js').then(({ openModal }) => {
-          openModal(externalLinkFragmentPath);
+          openModal(externalLinkFragmentPath, href);
         });
       }
     } catch {

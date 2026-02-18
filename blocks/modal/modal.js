@@ -1,15 +1,12 @@
 import { loadFragment } from '../fragment/fragment.js';
-import {
-  buildBlock, decorateBlock, loadBlock, loadCSS,
-} from '../../scripts/aem.js';
+import { buildBlock, decorateBlock, loadBlock } from '../../scripts/aem.js';
 
 export async function createModal(contentNodes) {
-  // await loadCSS(`${window.hlx.codeBasePath}/blocks/modal/modal.css`);
   const dialog = document.createElement('dialog');
+
   const dialogContent = document.createElement('div');
   dialogContent.classList.add('modal-content');
   dialogContent.append(...contentNodes);
-  dialog.append(dialogContent);
 
   const closeButton = document.createElement('button');
   closeButton.classList.add('close-button');
@@ -17,7 +14,8 @@ export async function createModal(contentNodes) {
   closeButton.type = 'button';
   closeButton.innerHTML = '<span class="icon icon-close"></span>';
   closeButton.addEventListener('click', () => dialog.close());
-  dialog.prepend(closeButton);
+
+  dialog.append(closeButton, dialogContent);
 
   const block = buildBlock('modal', '');
   document.querySelector('main').append(block);
@@ -26,9 +24,7 @@ export async function createModal(contentNodes) {
 
   // close on click outside the dialog
   dialog.addEventListener('click', (e) => {
-    const {
-      left, right, top, bottom,
-    } = dialog.getBoundingClientRect();
+    const { left, right, top, bottom } = dialog.getBoundingClientRect();
     const { clientX, clientY } = e;
     if (clientX < left || clientX > right || clientY < top || clientY > bottom) {
       dialog.close();
@@ -45,21 +41,39 @@ export async function createModal(contentNodes) {
 
   return {
     block,
+    dialog,
     showModal: () => {
       dialog.showModal();
-      // reset scroll position
-      setTimeout(() => { dialogContent.scrollTop = 0; }, 0);
+      dialogContent.scrollTop = 0;
       document.body.classList.add('modal-open');
     },
   };
 }
 
-export async function openModal(fragmentUrl) {
+export async function openModal(fragmentUrl, href) {
   const path = fragmentUrl.startsWith('http')
     ? new URL(fragmentUrl, window.location).pathname
     : fragmentUrl;
 
   const fragment = await loadFragment(path);
-  const { showModal } = await createModal(fragment.childNodes);
+  const { dialog, showModal } = await createModal(fragment.childNodes);
+
+  const anchors = dialog.querySelectorAll('a');
+  const [firstAnchor] = anchors;
+  const lastAnchor = anchors[anchors.length - 1];
+
+  if (firstAnchor) {
+    firstAnchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      dialog.close();
+    });
+  }
+
+  if (href && lastAnchor) {
+    lastAnchor.href = href;
+    lastAnchor.target = '_blank';
+    lastAnchor.rel = 'noopener noreferrer';
+  }
+
   showModal();
 }
