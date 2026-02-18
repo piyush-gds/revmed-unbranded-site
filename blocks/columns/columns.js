@@ -38,29 +38,69 @@ export default function decorate(block) {
 
         // Transform picture + text/link patterns into card-like elements
         const paragraphs = [...body.querySelectorAll('p')];
+        const processed = new Set();
         paragraphs.forEach((p, index) => {
+          if (processed.has(p)) return;
           const picture = p.querySelector('picture');
           if (picture) {
-            // Look for the next paragraph with text/link
-            const nextP = paragraphs[index + 1];
-            if (nextP && nextP.querySelector('a')) {
-              // Create card structure
+            // Check if next paragraph is also a picture (mobile image)
+            let scanStart = index + 1;
+            let mobilePictureP;
+            const nextP = paragraphs[scanStart];
+            const nextPicture = nextP ? nextP.querySelector('picture') : null;
+
+            if (nextPicture && !nextP.querySelector('a')) {
+              mobilePictureP = nextP;
+              scanStart = index + 2;
+            }
+
+            // Scan forward to find the paragraph with a link, collecting text paragraphs
+            const bodyParagraphs = [];
+            let linkP;
+            for (let i = scanStart; i < paragraphs.length; i += 1) {
+              const candidate = paragraphs[i];
+              if (processed.has(candidate)) continue;
+              if (candidate.querySelector('picture')) break; // hit next card's picture
+              if (candidate.querySelector('a')) {
+                linkP = candidate;
+                break;
+              }
+              bodyParagraphs.push(candidate);
+            }
+
+            if (linkP || bodyParagraphs.length > 0) {
               const card = document.createElement('div');
               card.className = 'accordion-card';
 
               const cardImage = document.createElement('div');
-              cardImage.className = 'accordion-card-image';
+              cardImage.className = 'accordion-card-image accordion-card-image--desktop';
               cardImage.append(picture);
+              card.append(cardImage);
+
+              if (mobilePictureP) {
+                const mobileImage = document.createElement('div');
+                mobileImage.className = 'accordion-card-image accordion-card-image--mobile';
+                mobileImage.append(nextPicture);
+                card.append(mobileImage);
+                processed.add(mobilePictureP);
+                mobilePictureP.remove();
+              }
 
               const cardBody = document.createElement('div');
               cardBody.className = 'accordion-card-body';
-              cardBody.append(...nextP.childNodes);
+              bodyParagraphs.forEach((bp) => {
+                cardBody.append(...bp.childNodes);
+                processed.add(bp);
+                bp.remove();
+              });
+              if (linkP) {
+                cardBody.append(...linkP.childNodes);
+                processed.add(linkP);
+                linkP.remove();
+              }
+              card.append(cardBody);
 
-              card.append(cardImage, cardBody);
-
-              // Replace picture paragraph with card, remove next paragraph
               p.replaceWith(card);
-              nextP.remove();
             }
           }
         });

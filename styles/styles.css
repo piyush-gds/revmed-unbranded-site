@@ -350,6 +350,10 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   object-fit: cover;
 }
 
+.section[data-accordion] .accordion-card-image--mobile {
+  display: none;
+}
+
 .section[data-accordion] .accordion-card-body {
   flex: 1;
   display: flex;
@@ -387,6 +391,18 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
     align-items: stretch;
     justify-content: center;
     overflow: hidden;
+  }
+
+  .section[data-accordion] .accordion-card-image :is(picture, img) {
+    object-fit: unset;
+  }
+
+  .section[data-accordion] .accordion-card-image--desktop {
+    display: none;
+  }
+
+  .section[data-accordion] .accordion-card-image--mobile {
+    display: flex;
   }
 
   .section[data-accordion] .accordion-card-body {
