@@ -31,7 +31,7 @@
   --heading-font-size-xxs: 18px;
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   :root {
     /* body sizes (desktop) */
     --body-font-size-l: 18px;
@@ -97,7 +97,7 @@ main .section.spacer {
   margin: 4.6875rem 0;
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   main .section.spacer {
     margin: 2.5rem 10px;
   }
@@ -236,7 +236,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   main .section.mulberry-style-pre-footer {
     padding: 40px 20px;
   }
@@ -371,7 +371,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   color: var(--link-color);
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
 
   .section[data-accordion] .accordion-cards-wrapper {
     padding: 30px 0;
@@ -454,7 +454,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   aspect-ratio: 300/101;
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   #ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
     font-size: 2rem;
     margin-bottom: 1.25rem;
@@ -516,7 +516,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   text-align: center;
 } 
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   #biomarkertesting .columns > div > div:last-child {
     position: relative;
     padding-left: 2.5rem;
@@ -556,7 +556,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   color: var(--mulberry-color);
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   /* #biomarkertesting * {
     margin-bottom: 1.25rem;
   } */

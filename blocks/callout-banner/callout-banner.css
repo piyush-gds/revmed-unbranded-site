@@ -32,7 +32,7 @@
 }
 
 /* mobile styles */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .callout-banner {
     padding: 40px 20px;
     font-size: 24px;

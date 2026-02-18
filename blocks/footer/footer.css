@@ -76,7 +76,7 @@ footer .footer .columns > div > div:last-child {
   color: #000;
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   footer .footer .default-content-wrapper {
     flex-direction: column;
     gap: 12px;
@@ -106,7 +106,7 @@ footer .footer .columns > div > div:last-child {
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   footer .footer > div {
     padding: 40px 32px;
   }

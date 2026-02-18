@@ -30,7 +30,7 @@
   display: none;
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   .cards .cards-card-image .cards-image--desktop {
     display: none;
   }

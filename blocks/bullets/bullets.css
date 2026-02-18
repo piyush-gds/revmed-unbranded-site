@@ -30,7 +30,7 @@
   display: block;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .bullets-container {
     margin-top: -1.25rem;
   }

@@ -144,7 +144,7 @@
 }
 
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .image-stack {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
     gap: 3rem;
@@ -152,7 +152,7 @@
   }
 }
 
-@media (width <= 900px) {
+@media (width <= 768px) {
   .image-stack {
     direction: ltr;
     margin-bottom: 20px;
