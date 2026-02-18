@@ -58,6 +58,7 @@ header nav.nav-desktop {
   gap: 0;
   max-width: 79rem;
   padding: 0 2rem;
+  height: var(--nav-height);
 }
 
 header nav.nav-desktop[aria-expanded='true'] {
@@ -214,7 +215,8 @@ header nav .nav-sections ul > li {
 header nav:not(.nav-desktop) .nav-sections ul > li {
   border-top: none;
   border-bottom: 0.125rem solid var(--green-color);
-  padding: 1.125rem 0;
+  margin: 0 -1.5rem;
+  padding: 1.125rem 1.5rem;
 }
 
 header nav .nav-sections ul > li a {
@@ -261,7 +263,12 @@ header nav .nav-sections ul > li.active:not(.nav-cta)::after {
 header nav .nav-sections ul > li.nav-cta {
   border-top: none;
   justify-content: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 2.5625rem;
+  background-color: var(--green-color);
+  color: white;
+  transform: skewX(-20deg);
+  margin: 1rem auto;
+  width: fit-content;
 }
 
 header nav .nav-sections ul > li.nav-cta a {
@@ -272,12 +279,6 @@ header nav .nav-sections ul > li.nav-cta a {
   font-weight: 700;
   font-size: var(--body-font-size-m);
   text-align: center;
-}
-
-header nav .nav-sections ul > li.nav-cta {
-  background-color: var(--green-color);
-  color: white;
-  transform: skewX(-10deg);
 }
 
 header nav .nav-sections ul > li.nav-cta a:hover {

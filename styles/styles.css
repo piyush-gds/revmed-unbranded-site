@@ -501,23 +501,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   font-weight: 800;
 }
 
-@media (width >= 48rem) {
-  :root {
-    /* body sizes (desktop) */
-    --body-font-size-l: 1.125rem;
-    --body-font-size-m: 1rem;
-    --body-font-size-s: 0.875rem;
-
-    /* heading sizes (mobile) */
-    --heading-font-size-xxl: 4rem;
-    --heading-font-size-xl: 3rem;
-    --heading-font-size-l: 2.5rem;
-    --heading-font-size-m: 2rem;
-    --heading-font-size-s: 1.75rem;
-    --heading-font-size-xs: 1.5rem;
-    --heading-font-size-xxs: 1.25rem;
-  }
-
+@media (width > 48rem) {
   #biomarkertesting .columns > div > div:last-child {
     position: relative;
     padding-left: 2.5rem;
