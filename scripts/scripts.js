@@ -158,6 +158,27 @@ async function loadLazy(doc) {
     });
   }
 
+  // Intercept external link clicks and show modal
+  const externalLinkFragmentPath = '/leaving-site-fragment';
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+    try {
+      const url = new URL(href, window.location.origin);
+      const isExternal = url.origin !== window.location.origin;
+      if (isExternal) {
+        e.preventDefault();
+        import('../blocks/modal/modal.js').then(({ openModal }) => {
+          openModal(externalLinkFragmentPath);
+        });
+      }
+    } catch {
+      // ignore invalid URLs
+    }
+  });
+
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 }
