@@ -2,6 +2,7 @@ body.modal-open {
     overflow: hidden;
 }
 
+/* Dialog backdrop & container */
 .modal dialog::backdrop {
     background-color: rgb(19 19 19 / 75%);
 }
@@ -10,11 +11,14 @@ body.modal-open {
     overscroll-behavior: none;
     overflow-y: hidden;
     width: calc(100vw - 48px);
-    max-width: 30rem;
+    max-width: 370px;
     max-height: calc(100dvh - (2 * var(--header-height)));
     padding: 0;
-    border: 1px solid #059669;
+    border: 1px solid #ccc;
     border-radius: 10px;
+    inset: 0;
+    margin: auto;
+    background: #fff;
 }
 
 .modal dialog .modal-content {
@@ -23,12 +27,10 @@ body.modal-open {
     overscroll-behavior: none;
     width: 100%;
     max-height: calc(100dvh - (2 * var(--header-height)) - 48px);
-    padding: 24px;
-    padding-top: 0;
-    margin-top: 44px;
+    padding: 40px 20px;
 }
 
-@media (width >=768px) {
+@media (width >=900px) {
     .modal dialog {
         width: calc(100vw - 64px);
     }
@@ -40,104 +42,156 @@ body.modal-open {
     }
 }
 
+/* Close button */
 .modal .close-button {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 44px;
-    height: 44px;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
     margin: 0;
     border: none;
     border-radius: 0;
     padding: 0;
     background-color: transparent;
-    color: var(--text-color);
-    line-height: 0;
-}
-
-.modal .close-button .icon.icon-close {
-    content: '';
-    width: 24px;
-    height: 24px;
-}
-
-.modal .close-button .icon.icon-close::before,
-.modal .close-button .icon.icon-close::after {
-    content: '';
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    width: 24px;
-    height: 2px;
-    border-radius: 2px;
-    background-color: currentcolor;
-}
-
-.modal .close-button .icon.icon-close::after {
-    transform: translate(-50%, -50%) rotate(-45deg)
-}
-
-.modal dialog .section {
-    padding: 0;
-}
-
-.modal .modal-content .columns-container .columns img {
-    width: unset;
-}
-
-.modal .modal-content .columns-container .columns>div {
-    display: flex;
-    margin: 0 0 24px;
-    padding: 0;
-}
-
-.modal .modal-content .columns-container .columns>div>div {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    column-gap: 12px;
-    align-items: flex-start;
-}
-
-.modal .modal-content .columns-container .columns>div>div p:nth-child(1) {
-    margin: 0;
-    padding: 0;
-    line-height: 0;
-    grid-row: 1 / 3;
-}
-
-.modal .modal-content .columns-container .columns>div>div p:nth-child(1) picture img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-top: 0.25rem;
-    color: #059669;
-    filter: invert(32%) sepia(93%) saturate(1000%) hue-rotate(155deg) brightness(92%) contrast(101%);
-}
-
-.modal .modal-content .columns-container .columns>div>div p:nth-child(2) {
-    margin: 0 0 4px 0;
-    padding: 0;
-    color: #0e4343;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 28px;
-}
-
-.modal .modal-content .columns-container .columns>div>div p:nth-child(3) {
-    margin: 0;
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 400;
-    text-decoration: underline;
-    color: #059669;
-}
-
-.modal .modal-content .columns-container .columns>div>div p:nth-child(3) a {
-    all: unset;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cpath d='M10.6667 31.6666L8.33333 29.3333L17.6667 19.9999L8.33333 10.6666L10.6667 8.33325L20 17.6666L29.3333 8.33325L31.6667 10.6666L22.3333 19.9999L31.6667 29.3333L29.3333 31.6666L20 22.3333L10.6667 31.6666Z' fill='%23952460'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40px 40px;
+    transform: rotate(90deg);
     cursor: pointer;
-    text-decoration: underline;
-    color: #059669;
+    line-height: 0;
+    z-index: 1;
+}
+
+.modal .close-button .icon {
+    display: none;
+}
+
+/* Content wrapper — flex layout so buttons flow inline */
+.modal .modal-content .default-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+/* All direct children span full width by default */
+.modal .modal-content .default-content-wrapper > * {
+    width: 100%;
+    margin: 0 0 20px;
+}
+
+/* Typography: headings */
+.modal .modal-content .default-content-wrapper h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+/* Typography: paragraphs */
+.modal .modal-content .default-content-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Button containers — shrink to content width, sit side-by-side */
+.modal .modal-content .default-content-wrapper .button-container {
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+
+.modal .modal-content .default-content-wrapper .button-container:last-child {
+    margin-right: 0;
+}
+
+/* Button base — reuses mulberry-style-pre-footer pattern */
+.modal .modal-content .default-content-wrapper .button-container a.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 8px 10px;
+    background-color: var(--green-color, #007580);
+    color: #fff;
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    border: 2px solid var(--green-color, #007580);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal .modal-content .default-content-wrapper .button-container a.button:hover {
+    background-color: #fff;
+    color: var(--green-color, #007580);
+}
+
+/* Button icon box (::after) */
+.modal .modal-content .default-content-wrapper .button-container a.button::after {
+    content: '';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23007580' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    transition: all 0.2s ease;
+}
+
+.modal .modal-content .default-content-wrapper .button-container a.button:hover::after {
+    background-color: var(--green-color, #007580);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Cancel button variant — X icon override via title attribute */
+.modal .modal-content .default-content-wrapper .button-container a.button[title="Cancel"]::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 2L12 12M12 2L2 12' stroke='%23007580' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 14px 14px;
+}
+
+.modal .modal-content .default-content-wrapper .button-container a.button[title="Cancel"]:hover::after {
+    background-color: var(--green-color, #007580);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 2L12 12M12 2L2 12' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Desktop */
+@media (width >= 900px) {
+    .modal dialog {
+        width: calc(100vw - 64px);
+        max-width: 1100px;
+    }
+
+    .modal dialog .modal-content {
+        max-height: calc(100dvh - (2 * var(--header-height)) - 64px);
+        padding: 40px 50px;
+    }
+
+    .modal .modal-content .default-content-wrapper > * {
+        margin-bottom: 30px;
+    }
+
+    .modal .modal-content .default-content-wrapper .button-container {
+        margin-bottom: 0;
+        margin-right: 25px;
+    }
+
+    .modal .modal-content .default-content-wrapper .button-container:last-child {
+        margin-right: 0;
+    }
 }
