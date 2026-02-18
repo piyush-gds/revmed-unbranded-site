@@ -526,6 +526,9 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
     margin: 2.5rem 0.625rem;
   }
 
+  main .section.full-width {
+    margin: 2.5rem 0;
+  }
   .decorative-corner,
   .callout-banner-corner {
     right: -0.9375rem;
