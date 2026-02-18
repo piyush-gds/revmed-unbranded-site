@@ -9,7 +9,7 @@
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .image-stack-media-col {
@@ -28,7 +28,7 @@
   --image2-height: 73.1%;
   --image2-line-width: 34%;
   --image2-line-gap: 0.75rem;
-  --image2-line-thickness: 3px;
+  --image2-line-thickness: 0.1875rem;
 }
 
 .image-stack-img {
@@ -97,10 +97,10 @@
 .image-stack-img--3::before {
   content: '';
   position: absolute;
-  inset: -6px;
+  inset: -0.375rem;
   background: var(--green-color);
   clip-path: polygon(0% 0%, 82% 0%, 100% 100%, 18% 100%);
-  transform: translate(-10px, 8px);
+  transform: translate(-0.625rem, 0.5rem);
   z-index: -1;
   pointer-events: none;
 }
@@ -144,18 +144,18 @@
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .image-stack {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
     gap: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 }
 
-@media (width <= 768px) {
+@media (width <= 48rem) {
   .image-stack {
     direction: ltr;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   .image-stack > :first-child {
@@ -167,7 +167,7 @@
   }
 
   .image-stack .image-stack-media-col {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   .image-stack .image-stack-content ul {
@@ -177,13 +177,13 @@
 
   .image-stack .image-stack-content div h1 {
     color: #000;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
   }
 
   .image-stack .image-stack-content ul li {
-    font-size: 18px;
-    margin-left: 30px;
-    margin-bottom: 10px;
+    font-size: 1.125rem;
+    margin-left: 1.875rem;
+    margin-bottom: 0.625rem;
   }
 }

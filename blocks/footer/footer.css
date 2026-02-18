@@ -4,8 +4,8 @@ footer {
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px;
+  max-width: 75rem;
+  padding: 2.5rem 1.5rem;
 }
 
 footer .footer p {
@@ -24,12 +24,12 @@ footer .footer .columns > div {
 
 footer .footer .section {
   flex-direction: column;
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 footer .footer .default-content-wrapper,
 footer .footer .default-content-wrapper .button-container {
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 footer .footer .default-content-wrapper .button-container {
@@ -39,8 +39,8 @@ footer .footer .default-content-wrapper .button-container {
 
 footer .footer .default-content-wrapper .button-container::after {
   content: '';
-  width: 1px;
-  height: 20px;
+  width: 0.0625rem;
+  height: 1.25rem;
   background-color: #808184;
 }
 
@@ -50,7 +50,7 @@ footer .footer .default-content-wrapper .button-container:last-child::after {
 
 footer .footer .default-content-wrapper a.button {
   padding: 0;
-  font: 600 16px 'Lexend', sans-serif;
+  font: 600 1rem 'Lexend', sans-serif;
   color: var(--green-color, #007580);
 }
 
@@ -59,7 +59,7 @@ footer .footer .default-content-wrapper a.button:hover {
 }
 
 footer .footer .columns > div {
-  gap: 19px;
+  gap: 1.1875rem;
 }
 
 footer .footer .columns > div > div:first-child {
@@ -67,32 +67,32 @@ footer .footer .columns > div > div:first-child {
 }
 
 footer .footer .columns img {
-  max-width: 250px;
+  max-width: 15.625rem;
   aspect-ratio: 125 / 39;
 }
 
 footer .footer .columns > div > div:last-child {
-  font: 400 14px 'Lexend', sans-serif;
+  font: 400 0.875rem 'Lexend', sans-serif;
   color: #000;
 }
 
-@media (width <= 768px) {
+@media (width <= 48rem) {
   footer .footer .default-content-wrapper {
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
     width: 100%;
   }
 
   footer .footer .default-content-wrapper .button-container {
     flex-direction: column;
     width: 100%;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   footer .footer .default-content-wrapper .button-container::after {
     width: 100%;
-    height: 1px;
-    margin: 8px 0;
+    height: 0.0625rem;
+    margin: 0.5rem 0;
   }
 
   footer .footer .default-content-wrapper a.button {
@@ -102,12 +102,12 @@ footer .footer .columns > div > div:last-child {
 
   footer .footer .columns > div {
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   footer .footer > div {
-    padding: 40px 32px;
+    padding: 2.5rem 2rem;
   }
 }

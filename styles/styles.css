@@ -17,35 +17,35 @@
   --heading-font-family: "Lexend", roboto, roboto-fallback, sans-serif;
 
   /* body sizes (mobile) */
-  --body-font-size-l: 18px;
-  --body-font-size-m: 16px;
-  --body-font-size-s: 14px;
+  --body-font-size-l: 1.125rem;
+  --body-font-size-m: 1rem;
+  --body-font-size-s: 0.875rem;
 
   /* heading sizes (mobile) */
-  --heading-font-size-xxl: 50px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 28px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 20px;
-  --heading-font-size-xxs: 18px;
+  --heading-font-size-xxl: 3.125rem;
+  --heading-font-size-xl: 2.5rem;
+  --heading-font-size-l: 2rem;
+  --heading-font-size-m: 1.75rem;
+  --heading-font-size-s: 1.5rem;
+  --heading-font-size-xs: 1.25rem;
+  --heading-font-size-xxs: 1.125rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   :root {
     /* body sizes (desktop) */
-    --body-font-size-l: 18px;
-    --body-font-size-m: 16px;
-    --body-font-size-s: 14px;
+    --body-font-size-l: 1.125rem;
+    --body-font-size-m: 1rem;
+    --body-font-size-s: 0.875rem;
 
     /* heading sizes (mobile) */
-    --heading-font-size-xxl: 64px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 40px;
-    --heading-font-size-m: 32px;
-    --heading-font-size-s: 28px;
-    --heading-font-size-xs: 24px;
-    --heading-font-size-xxs: 20px;
+    --heading-font-size-xxl: 4rem;
+    --heading-font-size-xl: 3rem;
+    --heading-font-size-l: 2.5rem;
+    --heading-font-size-m: 2rem;
+    --heading-font-size-s: 1.75rem;
+    --heading-font-size-xs: 1.5rem;
+    --heading-font-size-xxs: 1.25rem;
   }
 }
 
@@ -77,7 +77,7 @@ body.appear {
 }
 
 main > .section > div {
-  max-width: 912px;
+  max-width: 57rem;
   margin: auto;
 }
 
@@ -90,7 +90,7 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: 2.5rem 0;
 }
 
 main .section.spacer {
@@ -99,12 +99,12 @@ main .section.spacer {
 
 main .section.sky-blue {
   background-color: var(--sky-blue-color);
-  padding: 40px 0;
+  padding: 2.5rem 0;
 }
 
 main .section.light-pink {
   background-color: var(--light-pink-color);
-  padding: 40px 0;
+  padding: 2.5rem 0;
 }
 
 /* Shared mulberry background */
@@ -138,8 +138,8 @@ main .section.mulberry-style-pre-footer a,
 /* Shared decorative corner */
 .decorative-corner, .callout-banner-corner {
   position: absolute;
-  right: -5px;
-  bottom: -13px;
+  right: -0.3125rem;
+  bottom: -0.8125rem;
   pointer-events: none;
 }
 
@@ -151,7 +151,7 @@ main .section.mulberry-style-pre-footer a,
 /* Mulberry Style Pre-Footer */
 main .section.mulberry-style-pre-footer {
   margin: 0;
-  padding: 30px 0;
+  padding: 1.875rem 0;
 }
 
 main .section.mulberry-style-pre-footer img {
@@ -162,7 +162,7 @@ main .section.mulberry-style-pre-footer img {
 
 main .section.mulberry-style-pre-footer .columns > div {
   justify-content: center;
-  gap: 75px;
+  gap: 4.6875rem;
 }
 
 main .section.mulberry-style-pre-footer .columns > div > div {
@@ -173,23 +173,23 @@ main .section.mulberry-style-pre-footer a.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  padding: 8px 10px;
+  gap: 0.9375rem;
+  padding: 0.5rem 0.625rem;
   background-color: var(--green-color, #007580);
   color: #fff;
   font-family: 'Lexend', sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
-  border: 2px solid var(--green-color, #007580);
-  border-radius: 8px;
+  border: 0.125rem solid var(--green-color, #007580);
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 main .section.mulberry-style-pre-footer .button-container {
- padding-top: 20px;
+ padding-top: 1.25rem;
 }
 
 main .section.mulberry-style-pre-footer a.button:hover {
@@ -202,17 +202,17 @@ main .section.mulberry-style-pre-footer a.button::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   flex-shrink: 0;
-  border-radius: 8px;
-  padding: 6px 8px;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.5rem;
   box-sizing: border-box;
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23007580' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 12px 16px;
+  background-size: 0.75rem 1rem;
   transition: all 0.2s ease;
 }
 
@@ -229,21 +229,21 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 .section[data-accordion] .columns.accordion {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 /* Accordion item (details element) */
 .section[data-accordion] .accordion-item {
   background-color: var(--background-color);
-  border: 1px solid #dadada;
-  border-radius: 4px;
+  border: 0.0625rem solid #dadada;
+  border-radius: 0.25rem;
 }
 
 /* Accordion label (summary element) */
 .section[data-accordion] .accordion-item-label {
   position: relative;
   display: block;
-  padding: 20px 50px 20px 24px;
+  padding: 1.25rem 3.125rem 1.25rem 1.5rem;
   cursor: pointer;
   list-style: none;
   font-size: var(--heading-font-size-xs);
@@ -261,11 +261,11 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   content: '';
   position: absolute;
   top: 50%;
-  right: 20px;
-  width: 10px;
-  height: 10px;
+  right: 1.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
   border: solid var(--mulberry-color);
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.125rem 0.125rem 0;
   transform: translateY(-50%) rotate(45deg);
   transition: transform 0.2s ease;
 }
@@ -276,11 +276,11 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
 /* Accordion body */
 .section[data-accordion] .accordion-item-body {
-  padding: 0 24px 20px;
+  padding: 0 1.5rem 1.25rem;
 }
 
 .section[data-accordion] .accordion-item-body p {
-  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
   line-height: 1.6;
 }
 
@@ -292,8 +292,8 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 .section[data-accordion] .accordion-cards-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 40px 0;
+  gap: 1.25rem;
+  padding: 2.5rem 0;
 }
 
 .section[data-accordion] .accordion-card {
@@ -304,7 +304,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 }
 
 .section[data-accordion] .accordion-card-image {
-  flex: 0 0 80px;
+  flex: 0 0 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,22 +325,22 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
-  padding: 16px 20px;
+  gap: 0.125rem;
+  padding: 1rem 1.25rem;
 }
 
 .section[data-accordion] .accordion-card-body a {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 14px;
+  gap: 0.25rem;
+  font-size: 0.875rem;
   color: var(--green-color);
 }
 
 .section[data-accordion] .accordion-card-body a::after {
   content: '';
-  width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  height: 0.75rem;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007a87' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 
@@ -380,7 +380,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 } */
 
 #biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 #biomarkertesting > div > :is(h1, h2, h3, h4, h5, h6) {
@@ -443,16 +443,16 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 }
 
 .sticky-button-style > div {
-  max-width: 1100px;
+  max-width: 68.75rem;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .sticky-button-style .default-content-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
+  max-width: 68.75rem;
 }
 
 .sticky-button-style .button-container {
@@ -465,12 +465,12 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   line-height: 0;
   padding: 0;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40' fill='%23007580'%3E%3Cpath d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q43 0 83 8.5t77 24.5q-13 16-21 36t-8 42q0 45 30.5 75.5T717-663q22 0 42-8t36-21q16 37 24.5 77t8.5 83q0 83-31.5 156T711-249q-54 54-127 85.5T480-132Zm-160-360q33 0 56.5-23.5T400-572q0-33-23.5-56.5T320-652q-33 0-56.5 23.5T240-572q0 33 23.5 56.5T320-492Zm0 240q33 0 56.5-23.5T400-332q0-33-23.5-56.5T320-412q-33 0-56.5 23.5T240-332q0 33 23.5 56.5T320-252Zm280-120q25 0 42.5-17.5T660-432q0-25-17.5-42.5T600-492q-25 0-42.5 17.5T540-432q0 25 17.5 42.5T600-372Z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 40px 40px;
+  background-size: 2.5rem 2.5rem;
 }
 
 /* Back to Top button */
@@ -478,9 +478,9 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 10px;
-  font: 500 18px 'Lexend', sans-serif;
+  gap: 0.25rem;
+  padding: 0.625rem;
+  font: 500 1.125rem 'Lexend', sans-serif;
   color: var(--mulberry-color, #952460);
   background: white;
   border: none;
@@ -489,8 +489,8 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 .sticky-button-style .button-container:last-child a.button::before {
   content: '';
   display: block;
-  width: 15px;
-  height: 20px;
+  width: 0.9375rem;
+  height: 1.25rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='20' viewBox='0 0 15 20' fill='none'%3E%3Cpath d='M13 8.32861L7.5 2.82861L2 8.32861M7.5 4.07861V17.0786' stroke='%23952460' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
@@ -501,21 +501,21 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   font-weight: 800;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   :root {
     /* body sizes (desktop) */
-    --body-font-size-l: 18px;
-    --body-font-size-m: 16px;
-    --body-font-size-s: 14px;
+    --body-font-size-l: 1.125rem;
+    --body-font-size-m: 1rem;
+    --body-font-size-s: 0.875rem;
 
     /* heading sizes (mobile) */
-    --heading-font-size-xxl: 64px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 40px;
-    --heading-font-size-m: 32px;
-    --heading-font-size-s: 28px;
-    --heading-font-size-xs: 24px;
-    --heading-font-size-xxs: 20px;
+    --heading-font-size-xxl: 4rem;
+    --heading-font-size-xl: 3rem;
+    --heading-font-size-l: 2.5rem;
+    --heading-font-size-m: 2rem;
+    --heading-font-size-s: 1.75rem;
+    --heading-font-size-xs: 1.5rem;
+    --heading-font-size-xxs: 1.25rem;
   }
 
   #biomarkertesting .columns > div > div:last-child {
@@ -529,28 +529,28 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
     left: 0;
     top: calc(10.5rem + 1.875rem + 1.875rem);
     bottom: 0;
-    width: 2px;
+    width: 0.125rem;
     background-color: var(--mulberry-color);
     width: 0.03125rem;
     height: 13.875rem;
   }
 }
 
-@media (width <= 768px) {
+@media (width <= 48rem) {
   main .section.spacer {
-    margin: 2.5rem 10px;
+    margin: 2.5rem 0.625rem;
   }
 
   .decorative-corner,
   .callout-banner-corner {
-    right: -15px;
-    bottom: -10px;
-    width: 60px;
-    height: 75px;
+    right: -0.9375rem;
+    bottom: -0.625rem;
+    width: 3.75rem;
+    height: 4.6875rem;
   }
 
   main .section.mulberry-style-pre-footer {
-    padding: 40px 20px;
+    padding: 2.5rem 1.25rem;
   }
 
   main .section.mulberry-style-pre-footer p {
@@ -558,7 +558,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   main .section.mulberry-style-pre-footer .columns > div {
-    gap: 30px;
+    gap: 1.875rem;
   }
 
   main .section.mulberry-style-pre-footer img {
@@ -567,15 +567,15 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   .section[data-accordion] .accordion-cards-wrapper {
-    padding: 30px 0;
+    padding: 1.875rem 0;
   }
 
   .section[data-accordion] .accordion-card {
     flex-direction: column;
     align-items: stretch;
     background-color: #fff;
-    border: 1px solid #dadada;
-    border-radius: 6px;
+    border: 0.0625rem solid #dadada;
+    border-radius: 0.375rem;
   }
 
   .section[data-accordion] .accordion-card-image {
@@ -599,8 +599,8 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   .section[data-accordion] .accordion-card-body {
-    gap: 6px;
-    padding: 12px 16px;
+    gap: 0.375rem;
+    padding: 0.75rem 1rem;
   }
 
   .section[data-accordion] .accordion-card-body a {
@@ -614,7 +614,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   #ras-incancer .columns ul li {
-    margin-left: 30px;
+    margin-left: 1.875rem;
   }
 
   #ras-incancer .columns-wrapper {
@@ -635,7 +635,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   } */
 
   #biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   #biomarkertesting .columns > div {
@@ -644,8 +644,8 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   #biomarkertesting .columns div p picture img {
-    width: 100px;
-    height: 99px;
+    width: 6.25rem;
+    height: 6.1875rem;
     flex-shrink: 0;
     aspect-ratio: 100 / 99;
     margin-bottom: 0;
@@ -653,8 +653,8 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
   #biomarkertesting .columns > div > div {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    column-gap: 20px;
+    grid-template-columns: 6.25rem 1fr;
+    column-gap: 1.25rem;
     row-gap: 0;
     align-items: start;
     text-align: left;
@@ -674,7 +674,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
 
   #biomarkertesting .columns > div > div > :nth-child(n + 3) {
     grid-column: 1 / -1;
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 
   #biomarkertesting .columns div :is(h1, h2, h3, h4, h5, h6) {
@@ -682,23 +682,23 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   }
 
   #biomarkertesting div h1 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
   }
 
   #biomarkertesting div h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: 600;
   }
 
   #biomarkertesting div h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: 34px;
+    line-height: 2.125rem;
   }
 
   #biomarkertesting .columns div ul li {
-    margin-left: 30px;
+    margin-left: 1.875rem;
   }
 
   #biomarkertesting .columns div ul,

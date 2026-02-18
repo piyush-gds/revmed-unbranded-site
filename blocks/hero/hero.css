@@ -44,7 +44,7 @@
 
 .hero div:nth-child(4) div,
 .hero div:nth-child(5) div {
-  max-width: 912px;
+  max-width: 57rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -71,8 +71,8 @@
 .hero .hero-disclaimer--inset {
   display: none;
   position: absolute;
-  right: 16px;
-  bottom: 12px;
+  right: 1rem;
+  bottom: 0.75rem;
   margin: 0;
   color: #fff;
 }
@@ -84,7 +84,7 @@
   color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .hero.hero.hero--primary {
     justify-content: end;
     padding: 2.5rem 0;
@@ -105,8 +105,8 @@
 
   .hero div:nth-child(4) div,
   .hero div:nth-child(5) div {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 
   .hero-wrapper .hero-disclaimer {
