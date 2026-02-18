@@ -97,12 +97,6 @@ main .section.spacer {
   margin: 4.6875rem 0;
 }
 
-@media (width <= 768px) {
-  main .section.spacer {
-    margin: 2.5rem 10px;
-  }
-}
-
 main .section.sky-blue {
   background-color: var(--sky-blue-color);
   padding: 40px 0;
@@ -152,15 +146,6 @@ main .section.mulberry-style-pre-footer a,
 .decorative-corner svg, .callout-banner-corner svg {
   width: 100%;
   height: 100%;
-}
-
-@media (max-width: 768px) {
-  .decorative-corner,.callout-banner-corner {
-    right: -15px;
-    bottom: -10px;
-    width: 60px;
-    height: 75px;
-  }
 }
 
 /* Mulberry Style Pre-Footer */
@@ -234,25 +219,6 @@ main .section.mulberry-style-pre-footer a.button::after {
 main .section.mulberry-style-pre-footer a.button:hover::after {
   background-color: var(--green-color, #007580);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-@media (width <= 768px) {
-  main .section.mulberry-style-pre-footer {
-    padding: 40px 20px;
-  }
-
-   main .section.mulberry-style-pre-footer p {
-    text-align: center;
-  }
-
-  main .section.mulberry-style-pre-footer .columns > div {
-    gap: 30px;
-  }
-
-  main .section.mulberry-style-pre-footer img {
-    width: 100%;
-    margin: 0 auto;
-  }
 }
 
 /* Accordion Styles */
@@ -371,7 +337,234 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   color: var(--link-color);
 }
 
+.section[data-accordion] .accordion-card-body a::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007a87' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+#ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mulberry-color);
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.875rem;
+}
+
+#ras-incancer .columns-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+#ras-incancer .columns div {
+  gap: 1.875rem;
+  align-items: flex-start;
+}
+
+#ras-incancer .columns ul li {
+  margin-bottom: 0.625rem;
+  margin-left: 2rem;
+}
+
+#ras-incancer .columns ul li::marker {
+  color: var(--mulberry-color);
+}
+
+#ras-incancer picture img {
+  width: 25.0625rem;
+  height: 8.4375rem;
+  aspect-ratio: 300/101;
+}
+
+/* #biomarkertesting * {
+  margin-bottom: 1.875rem;
+} */
+
+#biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 30px;
+}
+
+#biomarkertesting > div > :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mulberry-color);
+}
+
+#biomarkertesting .columns .columns-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#biomarkertesting .columns div p picture img {
+  width: 12.5rem;
+  height: 10.5rem;
+  aspect-ratio: 25/21;
+}
+
+#biomarkertesting .columns > div {
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+#biomarkertesting .columns > div > div:first-child {
+  text-align: center;
+}
+
+#biomarkertesting .columns > div > div:last-child {
+  text-align: center;
+} 
+
+#biomarkertesting .columns div :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mulberry-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#biomarkertesting .columns div ul {
+  text-align: left;
+}
+
+#biomarkertesting .columns div ul li {
+  margin-bottom: 0.625rem;
+  margin-left: 2rem;
+}
+
+#biomarkertesting .columns div ul li::marker {
+  color: var(--mulberry-color);
+}
+
+/* Sticky Buttons Section */
+.sticky-button-style {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-button-style > div {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sticky-button-style .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+}
+
+.sticky-button-style .button-container {
+  margin: 0;
+}
+
+/* Cookies button - icon only */
+.sticky-button-style .button-container:first-child a.button {
+  font-size: 0;
+  line-height: 0;
+  padding: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40' fill='%23007580'%3E%3Cpath d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q43 0 83 8.5t77 24.5q-13 16-21 36t-8 42q0 45 30.5 75.5T717-663q22 0 42-8t36-21q16 37 24.5 77t8.5 83q0 83-31.5 156T711-249q-54 54-127 85.5T480-132Zm-160-360q33 0 56.5-23.5T400-572q0-33-23.5-56.5T320-652q-33 0-56.5 23.5T240-572q0 33 23.5 56.5T320-492Zm0 240q33 0 56.5-23.5T400-332q0-33-23.5-56.5T320-412q-33 0-56.5 23.5T240-332q0 33 23.5 56.5T320-252Zm280-120q25 0 42.5-17.5T660-432q0-25-17.5-42.5T600-492q-25 0-42.5 17.5T540-432q0 25 17.5 42.5T600-372Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px 40px;
+}
+
+/* Back to Top button */
+.sticky-button-style .button-container:last-child a.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px;
+  font: 500 18px 'Lexend', sans-serif;
+  color: var(--mulberry-color, #952460);
+  background: white;
+  border: none;
+}
+
+.sticky-button-style .button-container:last-child a.button::before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='20' viewBox='0 0 15 20' fill='none'%3E%3Cpath d='M13 8.32861L7.5 2.82861L2 8.32861M7.5 4.07861V17.0786' stroke='%23952460' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.sticky-button-style .button-container:last-child a.button:hover {
+  font-weight: 800;
+}
+
+@media (width >= 768px) {
+  :root {
+    /* body sizes (desktop) */
+    --body-font-size-l: 18px;
+    --body-font-size-m: 16px;
+    --body-font-size-s: 14px;
+
+    /* heading sizes (mobile) */
+    --heading-font-size-xxl: 64px;
+    --heading-font-size-xl: 48px;
+    --heading-font-size-l: 40px;
+    --heading-font-size-m: 32px;
+    --heading-font-size-s: 28px;
+    --heading-font-size-xs: 24px;
+    --heading-font-size-xxs: 20px;
+  }
+
+  #biomarkertesting .columns > div > div:last-child {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  #biomarkertesting .columns > div > div:last-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(10.5rem + 1.875rem + 1.875rem);
+    bottom: 0;
+    width: 2px;
+    background-color: var(--mulberry-color);
+    width: 0.03125rem;
+    height: 13.875rem;
+  }
+}
+
 @media (width <= 768px) {
+  main .section.spacer {
+    margin: 2.5rem 10px;
+  }
+
+  .decorative-corner,
+  .callout-banner-corner {
+    right: -15px;
+    bottom: -10px;
+    width: 60px;
+    height: 75px;
+  }
+
+  main .section.mulberry-style-pre-footer {
+    padding: 40px 20px;
+  }
+
+  main .section.mulberry-style-pre-footer p {
+    text-align: center;
+  }
+
+  main .section.mulberry-style-pre-footer .columns > div {
+    gap: 30px;
+  }
+
+  main .section.mulberry-style-pre-footer img {
+    width: 100%;
+    margin: 0 auto;
+  }
 
   .section[data-accordion] .accordion-cards-wrapper {
     padding: 30px 0;
@@ -414,47 +607,7 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
     color: var(--green-color, #007580);
     text-decoration: underline;
   }
-}
 
-.section[data-accordion] .accordion-card-body a::after {
-  content: '';
-  width: 12px;
-  height: 12px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007a87' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E") no-repeat center / contain;
-}
-
-#ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
-  color: var(--mulberry-color);
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1.875rem;
-}
-
-#ras-incancer .columns-wrapper {
-  margin-bottom: 2.5rem;
-}
-
-#ras-incancer .columns div {
-  gap: 1.875rem;
-  align-items: flex-start;
-}
-
-#ras-incancer .columns ul li {
-  margin-bottom: 0.625rem;
-  margin-left: 2rem;
-}
-
-#ras-incancer .columns ul li::marker {
-  color: var(--mulberry-color);
-}
-
-#ras-incancer picture img {
-  width: 25.0625rem;
-  height: 8.4375rem;
-  aspect-ratio: 300/101;
-}
-
-@media (width <= 768px) {
   #ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
     font-size: 2rem;
     margin-bottom: 1.25rem;
@@ -477,86 +630,6 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   #ras-incancer picture img {
     width: 100%;
   }
-}
-
-/* #biomarkertesting * {
-  margin-bottom: 1.875rem;
-} */
-
-#biomarkertesting .default-content-wrapper :is(p, h1, h2, h3, h4, h5, h6) {
-  margin-bottom: 30px;
-}
-
-#biomarkertesting > div > :is(h1, h2, h3, h4, h5, h6) {
-  color: var(--mulberry-color);
-}
-
-#biomarkertesting .columns .columns-img-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#biomarkertesting .columns div p picture img {
-  width: 12.5rem;
-  height: 10.5rem;
-  aspect-ratio: 25/21;
-}
-
-#biomarkertesting .columns > div {
-  align-items: flex-start;
-  gap: 2.5rem;
-}
-
-#biomarkertesting .columns > div > div:first-child {
-  text-align: center;
-}
-
-#biomarkertesting .columns > div > div:last-child {
-  text-align: center;
-} 
-
-@media (width >= 768px) {
-  #biomarkertesting .columns > div > div:last-child {
-    position: relative;
-    padding-left: 2.5rem;
-  }
-
-  #biomarkertesting .columns > div > div:last-child::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: calc(10.5rem + 1.875rem + 1.875rem);
-    bottom: 0;
-    width: 2px;
-    background-color: var(--mulberry-color);
-    width: 0.03125rem;
-    height: 13.875rem;
-  }
-}
-
-#biomarkertesting .columns div :is(h1, h2, h3, h4, h5, h6) {
-  color: var(--mulberry-color);
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.4;
-  text-align: center;
-}
-
-#biomarkertesting .columns div ul {
-  text-align: left;
-}
-
-#biomarkertesting .columns div ul li {
-  margin-bottom: 0.625rem;
-  margin-left: 2rem;
-}
-
-#biomarkertesting .columns div ul li::marker {
-  color: var(--mulberry-color);
-}
-
-@media (width <= 768px) {
   /* #biomarkertesting * {
     margin-bottom: 1.25rem;
   } */
@@ -632,73 +705,5 @@ main .section.mulberry-style-pre-footer a.button:hover::after {
   #ras-incancer .columns ul {
     list-style-position: outside;
   }
-}
-
-/* Sticky Buttons Section */
-.sticky-button-style {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  margin: 0;
-  padding: 0;
-}
-
-.sticky-button-style > div {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.sticky-button-style .default-content-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-}
-
-.sticky-button-style .button-container {
-  margin: 0;
-}
-
-/* Cookies button - icon only */
-.sticky-button-style .button-container:first-child a.button {
-  font-size: 0;
-  line-height: 0;
-  padding: 0;
-  display: block;
-  width: 40px;
-  height: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40' fill='%23007580'%3E%3Cpath d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q43 0 83 8.5t77 24.5q-13 16-21 36t-8 42q0 45 30.5 75.5T717-663q22 0 42-8t36-21q16 37 24.5 77t8.5 83q0 83-31.5 156T711-249q-54 54-127 85.5T480-132Zm-160-360q33 0 56.5-23.5T400-572q0-33-23.5-56.5T320-652q-33 0-56.5 23.5T240-572q0 33 23.5 56.5T320-492Zm0 240q33 0 56.5-23.5T400-332q0-33-23.5-56.5T320-412q-33 0-56.5 23.5T240-332q0 33 23.5 56.5T320-252Zm280-120q25 0 42.5-17.5T660-432q0-25-17.5-42.5T600-492q-25 0-42.5 17.5T540-432q0 25 17.5 42.5T600-372Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 40px 40px;
-}
-
-/* Back to Top button */
-.sticky-button-style .button-container:last-child a.button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 10px;
-  font: 500 18px 'Lexend', sans-serif;
-  color: var(--mulberry-color, #952460);
-  background: white;
-  border: none;
-}
-
-.sticky-button-style .button-container:last-child a.button::before {
-  content: '';
-  display: block;
-  width: 15px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='20' viewBox='0 0 15 20' fill='none'%3E%3Cpath d='M13 8.32861L7.5 2.82861L2 8.32861M7.5 4.07861V17.0786' stroke='%23952460' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.sticky-button-style .button-container:last-child a.button:hover {
-  font-weight: 800;
 }
 
