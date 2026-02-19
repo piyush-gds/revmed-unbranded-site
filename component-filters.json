@@ -42,23 +42,5 @@
       "title",
       "callout-banner"
     ]
-  },
-  {
-    "id": "richtext",
-    "rte": {
-      "toolbar": {
-        "insert": ["link", "unlink"]
-      },
-      "actions": {
-        "link": {
-          "hideTarget": false,
-          "shortcut": "Mod-K",
-          "label": "Add Link"
-        }
-      }
-    },
-    "components": [
-      "richtext"
-    ]
   }
 ]
