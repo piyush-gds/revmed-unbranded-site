@@ -1,4 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
+import { setExternalLinkTargets } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -16,10 +17,8 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
-  footer.querySelectorAll('a').forEach((a) => {
-    a.setAttribute('target', '_blank');
-    a.setAttribute('rel', 'noopener noreferrer');
-  });
+    // Add target="_blank" to all external links in the footer
+  setExternalLinkTargets(footer);
 
     // Make images clickable using the link from the following button
   footer.querySelectorAll('picture').forEach((picture) => {
@@ -31,9 +30,10 @@ export default async function decorate(block) {
         if (button) {
           const link = document.createElement('a');
           link.href = button.href;
-          link.title = button.title || button.textContent;
-          link.target = button.target || '_blank';
-          link.rel = button.rel || 'noopener noreferrer';
+          const img = picture.querySelector('img');
+          link.title = img?.alt || '';
+          link.target = button.target;
+          link.rel = button.rel;
           link.appendChild(picture);
           
           // Replace the parent p tag with the link

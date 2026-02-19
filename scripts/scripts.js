@@ -13,6 +13,24 @@ import {
 } from './aem.js';
 
 /**
+ * Adds target="_blank" and rel="noopener noreferrer" to all external links in a container.
+ * @param {Element} container The container element to scan for external links
+ */
+export function setExternalLinkTargets(container) {
+  container.querySelectorAll('a[href]').forEach((anchor) => {
+    try {
+      const url = new URL(anchor.href, window.location.origin);
+      if (url.origin !== window.location.origin) {
+        anchor.setAttribute('target', '_blank');
+        anchor.setAttribute('rel', 'noopener noreferrer');
+      }
+    } catch (err) {
+      // ignore invalid URLs
+    }
+  });
+}
+
+/**
  * Moves all the attributes from a given elmenet to another given element.
  * @param {Element} from the element to copy attributes from
  * @param {Element} to the element to copy attributes to
@@ -148,6 +166,9 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   loadFooter(doc.querySelector('footer'));
+
+  // Add target="_blank" to all external links on the page
+  setExternalLinkTargets(doc);
 
   // Back to Top smooth scroll
   const backToTopBtn = doc.querySelector('.sticky-button-style .button-container:last-child a.button');
