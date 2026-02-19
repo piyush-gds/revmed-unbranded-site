@@ -42,5 +42,20 @@
       "title",
       "callout-banner"
     ]
+  },
+  {
+    "id": "richtext",
+    "rte": {
+      "actions": {
+        "link": {
+          "hideTarget": false,
+          "shortcut": "Mod-K",
+          "label": "Add Link"
+        }
+      }
+    },
+    "components": [
+      "richtext"
+    ]
   }
 ]

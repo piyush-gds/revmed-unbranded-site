@@ -158,8 +158,23 @@ async function loadLazy(doc) {
     });
   }
 
-  // Intercept external link clicks and show modal
+  // Fetch whitelisted domains and intercept external link clicks
   const externalLinkFragmentPath = '/leaving-site-fragment';
+  const whitelistedDomainsEndpoint = 'https://publish-p52710-e1559444.adobeaemcloud.com/graphql/execute.json/piyush-unbranded-revmed-site/getDomainsByPath';
+  const whitelistedDomainsCFPath = '/content/dam/piyush-unbranded-revmed-site/content-fragments/revemed-whitelisted-domains';
+
+  let whitelistedDomains = [];
+  try {
+    const resp = await fetch(`${whitelistedDomainsEndpoint};path=${whitelistedDomainsCFPath}`);
+    if (resp.ok) {
+      const json = await resp.json();
+      whitelistedDomains = json?.data?.whitelistedDomainsCfModelByPath?.item?.domains || [];
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Failed to fetch whitelisted domains:', error);
+  }
+
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
@@ -169,14 +184,20 @@ async function loadLazy(doc) {
     try {
       const url = new URL(href, window.location.origin);
       const isExternal = url.origin !== window.location.origin;
-      if (isExternal) {
-        e.preventDefault();
-        import('../blocks/modal/modal.js').then(({ openModal }) => {
-          openModal(externalLinkFragmentPath, href);
-        });
-      }
-    } catch {
-      // ignore invalid URLs
+      if (!isExternal) return;
+
+      const isWhitelisted = whitelistedDomains.some(
+        (domain) => href.startsWith(domain),
+      );
+      if (isWhitelisted) return;
+
+      e.preventDefault();
+      import('../blocks/modal/modal.js').then(({ openModal }) => {
+        openModal(externalLinkFragmentPath, href);
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('URL parsing failed', error);
     }
   });
 
