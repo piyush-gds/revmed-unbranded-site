@@ -46,6 +46,9 @@
   {
     "id": "richtext",
     "rte": {
+      "toolbar": {
+        "insert": ["link", "unlink"]
+      },
       "actions": {
         "link": {
           "hideTarget": false,
