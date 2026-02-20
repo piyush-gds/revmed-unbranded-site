@@ -339,34 +339,6 @@
         "value": ""
       },
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "imageTwo",
-        "label": "Image 2",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageTwoAlt",
-        "label": "Image 2 Alt",
-        "value": ""
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "imageThree",
-        "label": "Image 3",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageThreeAlt",
-        "label": "Image 3 Alt",
-        "value": ""
-      },
-      {
         "component": "text",
         "valueType": "string",
         "name": "note",
