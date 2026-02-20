@@ -45,8 +45,8 @@ body.modal-open {
 /* Close button */
 .modal .close-button {
     position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
+    top: 0.625rem;
+    right: 0.625rem;
     width: 2.5rem;
     height: 2.5rem;
     aspect-ratio: 1/1;
@@ -128,6 +128,11 @@ body.modal-open {
     .modal dialog .modal-content {
         max-height: calc(100dvh - (2 * var(--header-height)) - 4rem);
         padding: 2.5rem 3.125rem;
+    }
+
+    .modal .close-button {
+        top: 1.25rem;
+        right: 1.25rem;
     }
 
     .modal .modal-content .default-content-wrapper > * {
