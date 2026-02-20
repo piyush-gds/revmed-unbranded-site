@@ -42,6 +42,10 @@
   display: none;
 }
 
+.hero .hero-image--tablet {
+  display: none;
+}
+
 .hero div:nth-child(4) div,
 .hero div:nth-child(5) div {
   max-width: 57rem;
@@ -99,6 +103,10 @@
     display: none;
   }
 
+  .hero .hero-image--tablet {
+    display: none;
+  }
+
   .hero .hero-image--mobile {
     display: block;
   }
@@ -119,5 +127,19 @@
 
   .hero--secondary .hero-disclaimer p {
     color: var(--text-color)
+  }
+}
+
+@media (min-width: 48.0625rem) and (max-width: 74.9375rem) {
+  .hero .hero-image--desktop {
+    display: none;
+  }
+
+  .hero .hero-image--tablet {
+    display: block;
+  }
+
+  .hero .hero-image--mobile {
+    display: none;
   }
 }
