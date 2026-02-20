@@ -327,15 +327,43 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "imageOne",
-        "label": "Image 1",
+        "name": "imageDesktop",
+        "label": "Desktop Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageOneAlt",
-        "label": "Image 1 Alt",
+        "name": "imageDesktopAlt",
+        "label": "Desktop Image Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageTablet",
+        "label": "Tablet Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageTabletAlt",
+        "label": "Tablet Image Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageMobile",
+        "label": "Mobile Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageMobileAlt",
+        "label": "Mobile Image Alt",
         "value": ""
       },
       {
