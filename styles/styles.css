@@ -155,7 +155,6 @@ main .section.mulberry-style-pre-footer img {
 }
 
 main .section.mulberry-style-pre-footer .columns > div {
-  justify-content: center;
   gap: 4.6875rem;
 }
 
@@ -579,6 +578,13 @@ main.error .section {
   }
 }
 
+@media (width > 48rem) and (width < 75rem) {
+  main .section.spacer {
+    padding-left: 2.1875rem;
+    padding-right: 2.1875rem;
+  }
+}
+
 @media (width <= 48rem) {
   main .section.spacer {
     margin: 2.5rem 0.625rem;
@@ -605,7 +611,7 @@ main.error .section {
   }
 
   main .section.mulberry-style-pre-footer img {
-    width: 100%;
+    width: 21.875rem;
     margin: 0 auto;
   }
 
@@ -750,3 +756,8 @@ main.error .section {
   }
 }
 
+@media (min-width: 48.0625rem) and (max-width: 74.9375rem) {
+  main .section.mulberry-style-pre-footer p {
+    max-width: 19rem;
+  }
+}
