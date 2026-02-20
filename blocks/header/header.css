@@ -1,4 +1,10 @@
 /* header and nav layout */
+header {
+  --hamburger-size: 1.5rem;
+  --hamburger-stroke: 0.1875rem;
+  --hamburger-radius: 0.125rem;
+}
+
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -74,9 +80,9 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
-  text-decoration: none;
 }
 
+header nav a:any-link,
 header nav a:hover {
   text-decoration: none;
 }
@@ -84,14 +90,14 @@ header nav a:hover {
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
-  height: 1.5rem;
+  height: var(--hamburger-size);
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
 header nav .nav-hamburger button {
-  height: 1.5rem;
+  height: var(--hamburger-size);
   margin: 0;
   border: 0;
   border-radius: 0;
@@ -110,7 +116,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 1.5rem;
+  width: var(--hamburger-size);
 }
 
 header nav .nav-hamburger-icon::before,
@@ -118,14 +124,14 @@ header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
   background: currentcolor;
-  width: 1.5rem;
+  width: var(--hamburger-size);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
 header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  height: 0.1875rem;
-  border-radius: 0.125rem;
+  height: var(--hamburger-stroke);
+  border-radius: var(--hamburger-radius);
   background: currentcolor;
 }
 
@@ -138,7 +144,7 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::after {
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 1.5rem;
+  height: var(--hamburger-size);
   background: transparent;
 }
 
@@ -148,9 +154,9 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   left: 0;
   transform: translateY(-50%) rotate(45deg);
   transform-origin: center;
-  width: 1.5rem;
-  height: 0.1875rem;
-  border-radius: 0.125rem;
+  width: var(--hamburger-size);
+  height: var(--hamburger-stroke);
+  border-radius: var(--hamburger-radius);
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
@@ -340,7 +346,7 @@ header nav.nav-desktop .nav-sections ul > li.active a {
   text-decoration: underline;
   text-decoration-thickness: 0.25rem;
   text-decoration-color: var(--mulberry-color);
-  text-underline-offset: 0.25rem;
+  text-underline-offset: 0.5rem;
   text-decoration-skip-ink: none;
   border-bottom: none;
   padding-bottom: 0;
