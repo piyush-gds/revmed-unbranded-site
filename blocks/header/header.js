@@ -133,7 +133,7 @@ export default async function decorate(block) {
               const targetId = href.substring(1);
               const targetSection = document.getElementById(targetId);
               if (targetSection) {
-                const headerOffset = 64;
+                const headerOffset = 119; // Nav height
                 const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerOffset;
                 window.scrollTo({ top: targetPosition, behavior: 'smooth' });
               }
