@@ -58,6 +58,9 @@ export async function openModal(fragmentUrl, href) {
   const fragment = await loadFragment(path);
   const { dialog, showModal } = await createModal(fragment.childNodes);
 
+  // Disable hover effects on modal buttons
+  dialog.querySelectorAll('a.button').forEach((btn) => btn.classList.add('no-hover'));
+
   const anchors = dialog.querySelectorAll('a');
   const [firstAnchor] = anchors;
   const lastAnchor = anchors[anchors.length - 1];

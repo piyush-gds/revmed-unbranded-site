@@ -183,7 +183,7 @@ a.button.primary {
   font-style: normal;
 }
 
-a.button.primary:hover {
+a.button.primary:not(.no-hover):hover {
   background-color: var(--green-color, #007580);
   color: #fff;
 }
@@ -207,7 +207,7 @@ a.button.primary::after {
   transition: all 0.2s ease;
 }
 
-a.button.primary:hover::after {
+a.button.primary:not(.no-hover):hover::after {
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23007580' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
@@ -233,7 +233,7 @@ a.button.secondary {
   font-style: normal;
 }
 
-a.button.secondary:hover {
+a.button.secondary:not(.no-hover):hover {
   background-color: #fff;
   color: var(--green-color, #007580);
 }
@@ -257,7 +257,7 @@ a.button.secondary::after {
   transition: all 0.2s ease;
 }
 
-a.button.secondary:hover::after {
+a.button.secondary:not(.no-hover):hover::after {
   background-color: var(--green-color, #007580);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16' viewBox='0 0 12 16' fill='none'%3E%3Cpath d='M2 2L10 8L2 14' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
