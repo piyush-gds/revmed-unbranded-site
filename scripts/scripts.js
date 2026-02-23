@@ -10,6 +10,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  getMetadata,
 } from './aem.js';
 
 /**
@@ -180,7 +181,7 @@ async function loadLazy(doc) {
   }
 
   // Fetch whitelisted domains and intercept external link clicks
-  const externalLinkFragmentPath = '/leaving-site-fragment';
+  const leavingSiteFragmentPath = getMetadata('leaving-site-fragment');
   const whitelistedDomainsEndpoint = 'https://publish-p52710-e1559444.adobeaemcloud.com/graphql/execute.json/piyush-unbranded-revmed-site/getDomainsByPath';
   const whitelistedDomainsCFPath = '/content/dam/piyush-unbranded-revmed-site/content-fragments/revemed-whitelisted-domains';
 
@@ -196,31 +197,33 @@ async function loadLazy(doc) {
     console.error('Failed to fetch whitelisted domains:', error);
   }
 
-  document.addEventListener('click', (e) => {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    if (anchor.closest('.modal')) return;
-    const href = anchor.getAttribute('href');
-    if (!href) return;
-    try {
-      const url = new URL(href, window.location.origin);
-      const isExternal = url.origin !== window.location.origin;
-      if (!isExternal) return;
+  if (leavingSiteFragmentPath) {
+    document.addEventListener('click', (e) => {
+      const anchor = e.target.closest('a');
+      if (!anchor) return;
+      if (anchor.closest('.modal')) return;
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+      try {
+        const url = new URL(href, window.location.origin);
+        const isExternal = url.origin !== window.location.origin;
+        if (!isExternal) return;
 
-      const isWhitelisted = whitelistedDomains.some(
-        (domain) => href.startsWith(domain),
-      );
-      if (isWhitelisted) return;
+        const isWhitelisted = whitelistedDomains.some(
+          (domain) => href.startsWith(domain),
+        );
+        if (isWhitelisted) return;
 
-      e.preventDefault();
-      import('../blocks/modal/modal.js').then(({ openModal }) => {
-        openModal(externalLinkFragmentPath, href);
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('URL parsing failed', error);
-    }
-  });
+        e.preventDefault();
+        import('../blocks/modal/modal.js').then(({ showLeavingSiteModal }) => {
+          showLeavingSiteModal(href, leavingSiteFragmentPath);
+        });
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('URL parsing failed', error);
+      }
+    });
+  }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();

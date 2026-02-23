@@ -21,6 +21,12 @@
           "name": "keywords",
           "multi": true,
           "label": "Keywords"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "leaving-site-fragment",
+          "label": "Leaving Site Fragment"
         }
       ]
     }
