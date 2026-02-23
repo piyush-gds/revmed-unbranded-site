@@ -557,6 +557,10 @@ main .section.mulberry-style-pre-footer .button-container {
   gap: 20px;
 }
 
+main.error {
+  margin-top: var(--nav-height);
+}
+
 main.error .section {
   padding: 246px 348px 167px;
 }
