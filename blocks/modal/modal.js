@@ -50,13 +50,18 @@ export async function createModal(contentNodes) {
   };
 }
 
-export async function openModal(fragmentUrl, href) {
-  const path = fragmentUrl.startsWith('http')
-    ? new URL(fragmentUrl, window.location).pathname
-    : fragmentUrl;
+/**
+ * Loads a fragment and sets up the leaving-site dialog
+ * (no-hover classes, cancel button wiring).
+ * @param {string} fragmentPath The path to the leaving-site fragment
+ */
+async function setupLeavingSiteDialog(fragmentPath) {
+  const path = fragmentPath.startsWith('http')
+    ? new URL(fragmentPath, window.location).pathname
+    : fragmentPath;
 
   const fragment = await loadFragment(path);
-  const { dialog, showModal } = await createModal(fragment.childNodes);
+  const { block, dialog, showModal } = await createModal(fragment.childNodes);
 
   // Disable hover effects on modal buttons
   dialog.querySelectorAll('a.button').forEach((btn) => btn.classList.add('no-hover'));
@@ -65,6 +70,7 @@ export async function openModal(fragmentUrl, href) {
   const [firstAnchor] = anchors;
   const lastAnchor = anchors[anchors.length - 1];
 
+  // Cancel button closes the dialog
   if (firstAnchor) {
     firstAnchor.addEventListener('click', (e) => {
       e.preventDefault();
@@ -72,13 +78,7 @@ export async function openModal(fragmentUrl, href) {
     });
   }
 
-  if (href && lastAnchor) {
-    lastAnchor.href = href;
-    lastAnchor.target = '_blank';
-    lastAnchor.rel = 'noopener noreferrer';
-  }
-
-  showModal();
+  return { block, dialog, showModal, lastAnchor };
 }
 
 /**
@@ -88,29 +88,18 @@ export async function openModal(fragmentUrl, href) {
  */
 export async function preloadLeavingSiteModal(fragmentPath) {
   try {
-    const path = fragmentPath.startsWith('http')
-      ? new URL(fragmentPath, window.location).pathname
-      : fragmentPath;
+    const { block, showModal: show, lastAnchor } = await setupLeavingSiteDialog(fragmentPath);
 
-    const fragment = await loadFragment(path);
-    const { dialog, showModal } = await createModal(fragment.childNodes);
-
-    // Disable hover effects on modal buttons
-    dialog.querySelectorAll('a.button').forEach((btn) => btn.classList.add('no-hover'));
-
-    const anchors = dialog.querySelectorAll('a');
-    const [firstAnchor] = anchors;
-    const lastAnchor = anchors[anchors.length - 1];
-
-    // Cancel button closes the dialog
-    if (firstAnchor) {
-      firstAnchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        dialog.close();
-      });
-    }
-
-    window.leavingSiteModal = { dialog, showModal, lastAnchor };
+    window.leavingSiteModal = {
+      lastAnchor,
+      showModal: () => {
+        // Re-append block if it was removed on previous close
+        if (!block.parentElement) {
+          document.querySelector('main').append(block);
+        }
+        show();
+      },
+    };
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Failed to preload leaving-site modal:', error);
@@ -119,20 +108,26 @@ export async function preloadLeavingSiteModal(fragmentPath) {
 
 /**
  * Shows the preloaded leaving-site modal, updating the Continue link href.
- * Falls back to openModal if the modal was not preloaded.
+ * Falls back to loading the fragment on-the-fly if not preloaded.
  * @param {string} href The external URL to navigate to on Continue
  * @param {string} fragmentPath Fallback fragment path if not preloaded
  */
 export async function showLeavingSiteModal(href, fragmentPath) {
-  if (window.leavingSiteModal) {
-    const { showModal, lastAnchor } = window.leavingSiteModal;
-    if (href && lastAnchor) {
-      lastAnchor.href = href;
-      lastAnchor.target = '_blank';
-      lastAnchor.rel = 'noopener noreferrer';
-    }
-    showModal();
-  } else if (fragmentPath) {
-    await openModal(fragmentPath, href);
+  let { leavingSiteModal } = window;
+
+  // Fallback: load on-the-fly if not preloaded
+  if (!leavingSiteModal && fragmentPath) {
+    const { showModal, lastAnchor } = await setupLeavingSiteDialog(fragmentPath);
+    leavingSiteModal = { showModal, lastAnchor };
   }
+
+  if (!leavingSiteModal) return;
+
+  const { showModal, lastAnchor } = leavingSiteModal;
+  if (href && lastAnchor) {
+    lastAnchor.href = href;
+    lastAnchor.target = '_blank';
+    lastAnchor.rel = 'noopener noreferrer';
+  }
+  showModal();
 }
