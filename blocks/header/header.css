@@ -64,7 +64,7 @@ header nav.nav-desktop {
   gap: 2.5rem;
   max-width: 81.4375rem;
   margin: 0 auto;
-  padding: 1.25rem 2rem;
+  padding: 1.25rem 0;
   height: var(--nav-height);
 }
 
@@ -314,7 +314,7 @@ header nav.nav-desktop .nav-sections ul {
 header nav.nav-desktop .nav-sections ul > li {
   flex: 0 0 auto;
   position: relative;
-  padding: 0.625rem;
+  padding: 0.25rem 0.3125rem;
   border-top: none;
   border-bottom: none;
   display: flex;

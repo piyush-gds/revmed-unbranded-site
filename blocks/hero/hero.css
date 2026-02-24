@@ -19,6 +19,21 @@
   color: var(--background-color);
 }
 
+.hero.hero--primary h1 {
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+.hero.hero--primary h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.hero.hero--primary p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 .hero.hero--secondary {
   height: 12.75rem;
   color: var(--text-color);
@@ -47,7 +62,7 @@
 
 .hero div:nth-child(5) div,
 .hero div:nth-child(6) div {
-  max-width: 57rem;
+  max-width: 57.125rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -56,7 +71,7 @@
 }
 
 .hero div:nth-child(6) div {
-  margin-top: 1.2rem;
+  margin-top: 1.25rem;
 }
 
 .hero-wrapper .hero-disclaimer {
@@ -93,9 +108,35 @@
     padding: 2.5rem 0;
   }
 
+  .hero.hero--primary h1 {
+    font-size: 2.375rem;
+    font-weight: 700;
+  }
+
+  .hero.hero--primary h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.125rem;
+  }
+
+  .hero.hero--primary p {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .hero-disclaimer.hero-disclaimer--inset p{
+    font-size: 0.75rem;
+  }
+
   .hero.hero--secondary {
     justify-content: end;
     padding: 1.25rem;
+    margin-top: unset;
+  }
+
+  .hero.hero--secondary h1 {
+    font-size: 2rem;
+    font-weight: 700;
   }
 
   .hero .hero-image--desktop {
@@ -125,7 +166,7 @@
   }
 
   .hero--secondary .hero-disclaimer p {
-    color: var(--text-color)
+    color: var(--text-color);
   }
 }
 

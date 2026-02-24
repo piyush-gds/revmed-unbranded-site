@@ -204,6 +204,16 @@ footer .footer .columns > div > div:last-child {
     flex-direction: column;
     gap: 0.75rem;
   }
+
+  footer .footer .columns img {
+    width: 160.347px;
+    height: 49.987px;
+    aspect-ratio: 160.35 / 49.99;
+  }
+
+  .sticky-button-style .default-content-wrapper {
+    padding: 0.625rem;
+  }
 }
 
 @media (width >= 48rem) {

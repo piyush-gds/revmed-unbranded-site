@@ -79,7 +79,7 @@ body.appear {
 }
 
 main > .section > div {
-  max-width: 57rem;
+  max-width: 57.125rem;
   margin: auto;
 }
 
@@ -290,10 +290,10 @@ main .section.mulberry-style-pre-footer .button-container {
 .section[data-accordion] .accordion-item-label {
   position: relative;
   display: block;
-  padding: 1.25rem 3.125rem 1.25rem 1.5rem;
+  padding: 1.25rem;
   cursor: pointer;
   list-style: none;
-  font-size: var(--heading-font-size-xs);
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--mulberry-color);
 }
@@ -323,12 +323,16 @@ main .section.mulberry-style-pre-footer .button-container {
 
 /* Accordion body */
 .section[data-accordion] .accordion-item-body {
-  padding: 0 1.5rem 1.25rem;
+  padding: 0 2.5rem 1.25rem 2.5rem;
 }
 
 .section[data-accordion] .accordion-item-body p {
   margin: 0 0 0.75rem;
   line-height: 1.6;
+}
+
+.section[data-accordion] .accordion-item-body p strong{
+  font-size: 1.25rem;
 }
 
 .section[data-accordion] .accordion-item-body p:last-child {
@@ -596,6 +600,10 @@ main.error .section {
   .section[data-accordion] .accordion-card-body a {
     color: var(--green-color, #007580);
     text-decoration: underline;
+  }
+
+  .section[data-accordion] .accordion-item-label {
+    font-size: 2rem;
   }
 
   #ras-incancer > div > :is(h1, h2, h3, h4, h5, h6) {
