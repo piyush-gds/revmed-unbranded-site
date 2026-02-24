@@ -46,5 +46,21 @@ export default async function decorate(block) {
     }
   });
 
+  const stickySection = footer.querySelector('.sticky-button-style');
+  if (stickySection) {
+    const footerEl = block.closest('footer');
+    if (footerEl) {
+      footerEl.parentElement.insertBefore(stickySection, footerEl);
+    }
+
+    const backToTopBtn = stickySection.querySelector('.button-container:last-child a.button');
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+
   block.append(footer);
 }

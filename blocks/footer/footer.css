@@ -2,10 +2,13 @@ footer {
   font-size: var(--body-font-size-xs);
 }
 
+footer .footer {
+  position: relative;
+}
+
 footer .footer > div {
-  margin: auto;
-  max-width: 75rem;
-  padding: 2.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 footer .footer p {
@@ -25,6 +28,10 @@ footer .footer .columns > div {
 footer .footer .section {
   flex-direction: column;
   gap: 1.875rem;
+}
+
+footer .footer .section.columns-container {
+  padding: 2.5rem 1.5rem;
 }
 
 footer .footer .default-content-wrapper,
@@ -48,15 +55,103 @@ footer .footer .default-content-wrapper .button-container:last-child::after {
   display: none;
 }
 
+.sticky-button-style {
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-button-style .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 68.75rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem;
+  gap: 0;
+}
+
+.sticky-button-style .default-content-wrapper .button-container {
+  gap: 0;
+  margin: 0;
+}
+
+.sticky-button-style .default-content-wrapper .button-container::after {
+  display: none;
+}
+
+.sticky-button-style .default-content-wrapper a.button {
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
+.sticky-button-style .default-content-wrapper a.button::after {
+  display: none;
+}
+
+/* Cookies button — icon only */
+.sticky-button-style .button-container:first-child a.button {
+  font-size: 0;
+  line-height: 0;
+  padding: 0;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24' fill='%23007580'%3E%3Cpath d='M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q43 0 83 8.5t77 24.5q-13 16-21 36t-8 42q0 45 30.5 75.5T717-663q22 0 42-8t36-21q16 37 24.5 77t8.5 83q0 83-31.5 156T711-249q-54 54-127 85.5T480-132Zm-160-360q33 0 56.5-23.5T400-572q0-33-23.5-56.5T320-652q-33 0-56.5 23.5T240-572q0 33 23.5 56.5T320-492Zm0 240q33 0 56.5-23.5T400-332q0-33-23.5-56.5T320-412q-33 0-56.5 23.5T240-332q0 33 23.5 56.5T320-252Zm280-120q25 0 42.5-17.5T660-432q0-25-17.5-42.5T600-492q-25 0-42.5 17.5T540-432q0 25 17.5 42.5T600-372Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.5rem 2.5rem;
+}
+
+/* Back to Top button */
+.sticky-button-style .button-container:last-child a.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.625rem;
+  font: 500 1.125rem 'Lexend', sans-serif;
+  color: var(--mulberry-color, #952460);
+  background: white;
+  text-decoration: none;
+}
+
+.sticky-button-style .button-container:last-child a.button::before {
+  content: '';
+  display: block;
+  width: 0.9375rem;
+  height: 1.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='20' viewBox='0 0 15 20' fill='none'%3E%3Cpath d='M13 8.32861L7.5 2.82861L2 8.32861M7.5 4.07861V17.0786' stroke='%23952460' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.sticky-button-style .button-container:last-child a.button:hover {
+  font-weight: 800;
+}
+
 footer .footer .default-content-wrapper a.button {
   padding: 0;
   font: 600 1rem 'Lexend', sans-serif;
   color: var(--green-color, #007580);
   text-decoration: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
+footer .footer .default-content-wrapper a.button::after {
+  display: none;
 }
 
 footer .footer .default-content-wrapper a.button:hover {
   text-decoration: none;
+  background: none;
 }
 
 footer .footer .columns > div {
@@ -78,6 +173,10 @@ footer .footer .columns > div > div:last-child {
 }
 
 @media (width <= 48rem) {
+  footer .footer .section.columns-container {
+    padding: 2.5rem 1.25rem;
+  }
+
   footer .footer .default-content-wrapper {
     flex-direction: column;
     gap: 0.75rem;
@@ -108,7 +207,7 @@ footer .footer .columns > div > div:last-child {
 }
 
 @media (width >= 48rem) {
-  footer .footer > div {
+  footer .footer .section.columns-container {
     padding: 2.5rem 2rem;
   }
 }

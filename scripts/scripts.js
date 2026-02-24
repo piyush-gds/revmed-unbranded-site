@@ -170,15 +170,6 @@ async function loadLazy(doc) {
   // Add target="_blank" to all external links on the page
   setExternalLinkTargets(doc);
 
-  // Back to Top smooth scroll
-  const backToTopBtn = doc.querySelector('.sticky-button-style .button-container:last-child a.button');
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
   // Fetch whitelisted domains and intercept external link clicks
   const whitelistedDomainsEndpoint = 'https://publish-p52710-e1559444.adobeaemcloud.com/graphql/execute.json/piyush-unbranded-revmed-site/getDomainsByPath';
   const whitelistedDomainsCFPath = '/content/dam/piyush-unbranded-revmed-site/content-fragments/revemed-whitelisted-domains';
