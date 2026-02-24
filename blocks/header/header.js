@@ -171,12 +171,4 @@ export default async function decorate(block) {
 
   // Re-check after fonts load since text widths may change
   document.fonts.ready.then(() => checkNavFit(navWrapper, nav, navSections));
-
-  // Preload leaving-site modal if fragment path is configured in page metadata
-  const leavingSiteFragmentPath = getMetadata('leaving-site-fragment');
-  if (leavingSiteFragmentPath) {
-    import('../modal/modal.js').then(({ preloadLeavingSiteModal }) => {
-      preloadLeavingSiteModal(leavingSiteFragmentPath);
-    });
-  }
 }

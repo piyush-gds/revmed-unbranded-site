@@ -20,12 +20,6 @@
         "name": "keywords",
         "multi": true,
         "label": "Keywords"
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "leaving-site-fragment",
-        "label": "Leaving Site Fragment"
       }
     ]
   },
@@ -384,6 +378,17 @@
         "name": "content",
         "value": "",
         "label": "Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "modal",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Fragment",
         "valueType": "string"
       }
     ]

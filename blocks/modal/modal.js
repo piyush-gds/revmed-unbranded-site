@@ -1,126 +1,96 @@
 import { loadFragment } from '../fragment/fragment.js';
-import { buildBlock, decorateBlock, loadBlock } from '../../scripts/aem.js';
-
-export async function createModal(contentNodes) {
-  const dialog = document.createElement('dialog');
-
-  const dialogContent = document.createElement('div');
-  dialogContent.classList.add('modal-content');
-  dialogContent.append(...contentNodes);
-
-  const closeButton = document.createElement('button');
-  closeButton.classList.add('close-button');
-  closeButton.setAttribute('aria-label', 'Close');
-  closeButton.type = 'button';
-  closeButton.innerHTML = '<span class="icon icon-close"></span>';
-  closeButton.addEventListener('click', () => dialog.close());
-
-  dialog.append(closeButton, dialogContent);
-
-  const block = buildBlock('modal', '');
-  document.querySelector('main').append(block);
-  decorateBlock(block);
-  await loadBlock(block);
-
-  // close on click outside the dialog
-  dialog.addEventListener('click', (e) => {
-    const { left, right, top, bottom } = dialog.getBoundingClientRect();
-    const { clientX, clientY } = e;
-    if (clientX < left || clientX > right || clientY < top || clientY > bottom) {
-      dialog.close();
-    }
-  });
-
-  dialog.addEventListener('close', () => {
-    document.body.classList.remove('modal-open');
-    block.remove();
-  });
-
-  block.innerHTML = '';
-  block.append(dialog);
-
-  return {
-    block,
-    dialog,
-    showModal: () => {
-      dialog.showModal();
-      dialogContent.scrollTop = 0;
-      document.body.classList.add('modal-open');
-    },
-  };
-}
 
 /**
- * Loads a fragment and sets up the leaving-site dialog
- * (no-hover classes, cancel button wiring).
- * @param {string} fragmentPath The path to the leaving-site fragment
+ * Decorates the modal block.
+ * Reads the authored fragment path, preloads the modal, and stores it
+ * on window.leavingSiteModal for the external-link click handler.
+ * @param {Element} block The modal block element
  */
-async function setupLeavingSiteDialog(fragmentPath) {
+export default async function decorate(block) {
+  const link = block.querySelector('a');
+  const fragmentPath = link?.getAttribute('href');
+
+  // Hide the block — it's only used as a data holder
+  block.style.display = 'none';
+
+  if (!fragmentPath) return;
+
   const path = fragmentPath.startsWith('http')
     ? new URL(fragmentPath, window.location).pathname
     : fragmentPath;
 
-  const fragment = await loadFragment(path);
-  const { block, dialog, showModal } = await createModal(fragment.childNodes);
-
-  // Disable hover effects on modal buttons
-  dialog.querySelectorAll('a.button').forEach((btn) => btn.classList.add('no-hover'));
-
-  const anchors = dialog.querySelectorAll('a');
-  const [firstAnchor] = anchors;
-  const lastAnchor = anchors[anchors.length - 1];
-
-  // Cancel button closes the dialog
-  if (firstAnchor) {
-    firstAnchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      dialog.close();
-    });
-  }
-
-  return { block, dialog, showModal, lastAnchor };
-}
-
-/**
- * Preloads the leaving-site modal fragment and creates the modal in the DOM.
- * Stores the modal reference on window.leavingSiteModal for later use.
- * @param {string} fragmentPath The path to the leaving-site fragment
- */
-export async function preloadLeavingSiteModal(fragmentPath) {
   try {
-    const { block, showModal: show, lastAnchor } = await setupLeavingSiteDialog(fragmentPath);
+    const fragment = await loadFragment(path);
 
+    // Build dialog
+    const dialog = document.createElement('dialog');
+    const dialogContent = document.createElement('div');
+    dialogContent.classList.add('modal-content');
+    dialogContent.append(...fragment.childNodes);
+
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('close-button');
+    closeButton.setAttribute('aria-label', 'Close');
+    closeButton.type = 'button';
+    closeButton.innerHTML = '<span class="icon icon-close"></span>';
+    closeButton.addEventListener('click', () => dialog.close());
+
+    dialog.append(closeButton, dialogContent);
+
+    // Close on click outside
+    dialog.addEventListener('click', (e) => {
+      const { left, right, top, bottom } = dialog.getBoundingClientRect();
+      const { clientX, clientY } = e;
+      if (clientX < left || clientX > right || clientY < top || clientY > bottom) {
+        dialog.close();
+      }
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+    });
+
+    // Disable hover effects on modal buttons
+    dialog.querySelectorAll('a.button').forEach((btn) => btn.classList.add('no-hover'));
+
+    // Wire up Cancel (first link) and Continue (last link)
+    const anchors = dialog.querySelectorAll('a');
+    const [firstAnchor] = anchors;
+    const lastAnchor = anchors[anchors.length - 1];
+
+    if (firstAnchor) {
+      firstAnchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        dialog.close();
+      });
+    }
+
+    // Append dialog into the block
+    block.textContent = '';
+    block.append(dialog);
+
+    // Expose on window for the external-link click handler
     window.leavingSiteModal = {
       lastAnchor,
       showModal: () => {
-        // Re-append block if it was removed on previous close
-        if (!block.parentElement) {
-          document.querySelector('main').append(block);
-        }
-        show();
+        block.style.display = '';
+        dialog.showModal();
+        dialogContent.scrollTop = 0;
+        document.body.classList.add('modal-open');
       },
     };
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('Failed to preload leaving-site modal:', error);
+    console.error('Failed to load leaving-site modal fragment:', error);
   }
 }
 
 /**
  * Shows the preloaded leaving-site modal, updating the Continue link href.
- * Falls back to loading the fragment on-the-fly if not preloaded.
  * @param {string} href The external URL to navigate to on Continue
- * @param {string} fragmentPath Fallback fragment path if not preloaded
  */
-export async function showLeavingSiteModal(href, fragmentPath) {
-  let { leavingSiteModal } = window;
-
-  // Fallback: load on-the-fly if not preloaded
-  if (!leavingSiteModal && fragmentPath) {
-    const { showModal, lastAnchor } = await setupLeavingSiteDialog(fragmentPath);
-    leavingSiteModal = { showModal, lastAnchor };
-  }
-
+export function showLeavingSiteModal(href) {
+  const { leavingSiteModal } = window;
   if (!leavingSiteModal) return;
 
   const { showModal, lastAnchor } = leavingSiteModal;
