@@ -82,13 +82,22 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  // Clean up brand link
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
     const brandLink = navBrand.querySelector('.button');
     if (brandLink) {
       brandLink.className = '';
       brandLink.closest('.button-container').className = '';
+    } else {
+      // No link authored — wrap the logo image in a link to homepage
+      const picture = navBrand.querySelector('picture');
+      if (picture) {
+        const link = document.createElement('a');
+        link.href = '/';
+        link.setAttribute('aria-label', 'Home');
+        picture.parentElement.insertBefore(link, picture);
+        link.appendChild(picture);
+      }
     }
   }
 
